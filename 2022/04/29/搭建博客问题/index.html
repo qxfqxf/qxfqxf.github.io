@@ -24,7 +24,7 @@
     let KEEP = window.KEEP || {};
     KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-Hans","path":"search.json"};
     KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"黄色的森林分出两条路，我选择了人迹更少的那一条，从此决定我一生的道路。"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
-    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 6.1.0"></head>
 
@@ -152,12 +152,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>157 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>266 Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>1 Mins</span>
         </span>
     
     
@@ -173,10 +173,22 @@
         
 
         <div class="article-content markdown-body">
-            <h2 id="Welcome-to-第一篇文章，我在这里记录我创建博客时的问题"><a href="#Welcome-to-第一篇文章，我在这里记录我创建博客时的问题" class="headerlink" title="Welcome to 第一篇文章，我在这里记录我创建博客时的问题"></a>Welcome to 第一篇文章，我在这里记录我创建博客时的问题</h2><p>dir	查询文件目录<br>hexo serve 启动<br>hexo n “我的第一篇文章”<br><code>hexo clean</code>清除了你之前生成的东西，也可以不加。<br><code>hexo generate</code> 顾名思义，生成静态文章，可以用 <code>hexo g</code>缩写<br><code>hexo deploy</code> 部署文章，可以用<code>hexo d</code>缩写</p>
-<p>参考 bilibiliup (<a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty?spm_id_from=333.337.search-card.all.click" >https://www.bilibili.com/video/BV1Yb411a7ty?spm_id_from=333.337.search-card.all.click<i class="fas fa-external-link-alt"></i></a>)</p>
-<p><a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty?spm_id_from=333.337.search-card.all.click" >https://www.bilibili.com/video/BV1Yb411a7ty?spm_id_from=333.337.search-card.all.click<i class="fas fa-external-link-alt"></i></a></p>
+            <h2 id="Welcome-to-第一篇文章，我在这里记录我创建博客时的问题"><a href="#Welcome-to-第一篇文章，我在这里记录我创建博客时的问题" class="headerlink" title="Welcome to 第一篇文章，我在这里记录我创建博客时的问题"></a>Welcome to 第一篇文章，我在这里记录我创建博客时的问题</h2><h1 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h1><p>dir	查询文件目录<br>hexo serve 启动<br>hexo n “我的第一篇文章”<br><code>hexo clean</code>清除了你之前生成的东西，也可以不加。<br><code>hexo generate</code> 顾名思义，生成静态文章，可以用 <code>hexo g</code>缩写<br><code>hexo deploy</code> 部署文章，可以用<code>hexo d</code>缩写</p>
 <p>部署到github  需要下载hexo-deployer-git<br>需要到_config.yml下的Deployment去配置type&#x3D;”git”和git地址<br>然后就可以进行部署  hexo d </p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>1， 配置你的<a class="link"   target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=github&spm=1001.2101.3001.7020" >github<i class="fas fa-external-link-alt"></i></a>用户名和和邮箱，</p>
+<p>​		git config –global user.email “<a class="link"   href="mailto:&#100;&#97;&#109;&#x69;&#x6e;&#103;&#x31;&#x37;&#64;&#x31;&#54;&#x33;&#46;&#99;&#111;&#x6d;" >&#100;&#97;&#109;&#x69;&#x6e;&#103;&#x31;&#x37;&#64;&#x31;&#54;&#x33;&#46;&#99;&#111;&#x6d;<i class="fas fa-external-link-alt"></i></a>“ </p>
+<p>​		git config –global user.name “daming-Z”</p>
+<p>2，取消git本身的https代理，使用自己本机的代理，</p>
+<p>​		取消http代理* 	  git config –global –unset http.proxy </p>
+<p>​		取消https代理*  	git config –global –unset https.proxy</p>
+<p>3，生成github令牌流程</p>
+<p>​		<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/yjw123456/article/details/119696726" >https://blog.csdn.net/yjw123456/article/details/119696726<i class="fas fa-external-link-alt"></i></a></p>
+<p>4，keep主题的配置</p>
+<p>​		<a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/368244108" >https://zhuanlan.zhihu.com/p/368244108<i class="fas fa-external-link-alt"></i></a></p>
+<p>参考 bilibiliup </p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty?spm_id_from=333.337.search-card.all.click" >https://www.bilibili.com/video/BV1Yb411a7ty?spm_id_from=333.337.search-card.all.click<i class="fas fa-external-link-alt"></i></a></p>
+<p>设置主题</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://hexo.io/themes/" >https://hexo.io/themes/<i class="fas fa-external-link-alt"></i></a></p>
 
         </div>
 
@@ -190,14 +202,14 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/04/29/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E6%96%87%E7%AB%A0%EF%BC%88%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0%EF%BC%89/"
+                           href="/2022/04/29/vue3biji/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
                                 <span class="post-nav-title-item">Vue3 笔记</span>
-                                <span class="post-nav-item">上一篇</span>
+                                <span class="post-nav-item">Prev posts</span>
                             </span>
                         </a>
                     </div>
@@ -210,7 +222,7 @@
                         >
                             <span class="title flex-center">
                                 <span class="post-nav-title-item">Hello World</span>
-                                <span class="post-nav-item">下一篇</span>
+                                <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
                               <i class="fas fa-chevron-right"></i>
@@ -250,7 +262,7 @@
             </div>
         
         <div class="theme-info info-item">
-            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
         </div>
         
             <div class="icp-info info-item"><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">豫ICP证000000000001</a></div>
@@ -328,7 +340,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Welcome-to-%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%EF%BC%8C%E6%88%91%E5%9C%A8%E8%BF%99%E9%87%8C%E8%AE%B0%E5%BD%95%E6%88%91%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%97%B6%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">Welcome to 第一篇文章，我在这里记录我创建博客时的问题</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Welcome-to-%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%EF%BC%8C%E6%88%91%E5%9C%A8%E8%BF%99%E9%87%8C%E8%AE%B0%E5%BD%95%E6%88%91%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%97%B6%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">Welcome to 第一篇文章，我在这里记录我创建博客时的问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B"><span class="nav-number"></span> <span class="nav-text">流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number"></span> <span class="nav-text">问题</span></a>
     </div>
 </div>
         </aside>
@@ -350,7 +362,7 @@
                 <input autocomplete="off"
                        autocorrect="off"
                        autocapitalize="off"
-                       placeholder="搜索..."
+                       placeholder="Search..."
                        spellcheck="false"
                        type="search"
                        class="search-input"
