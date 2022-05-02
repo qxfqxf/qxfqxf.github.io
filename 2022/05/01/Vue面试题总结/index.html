@@ -178,12 +178,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>1.2k 字數</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.4k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>4 分鐘</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>5 分钟</span>
         </span>
     
     
@@ -202,9 +202,11 @@
             <p>面试题 链接：</p>
 <p>前端面试指南 </p>
 <p><a class="link"   target="_blank" rel="noopener" href="https://interview2.poetries.top/docs/base.html" >https://interview2.poetries.top/docs/base.html<i class="fas fa-external-link-alt"></i></a></p>
-<p>邮箱：<a class="link"   href="mailto:&#x31;&#56;&#x30;&#49;&#x30;&#48;&#x37;&#55;&#48;&#50;&#54;&#64;&#x31;&#54;&#x33;&#x2e;&#99;&#111;&#109;" >&#x31;&#56;&#x30;&#49;&#x30;&#48;&#x37;&#55;&#48;&#50;&#54;&#64;&#x31;&#54;&#x33;&#x2e;&#99;&#111;&#109;<i class="fas fa-external-link-alt"></i></a></p>
+<p>邮箱：<a class="link"   href="mailto:&#49;&#x38;&#x30;&#x31;&#48;&#x30;&#55;&#x37;&#x30;&#x32;&#x36;&#64;&#x31;&#x36;&#51;&#46;&#x63;&#111;&#x6d;" >&#49;&#x38;&#x30;&#x31;&#48;&#x30;&#55;&#x37;&#x30;&#x32;&#x36;&#64;&#x31;&#x36;&#51;&#46;&#x63;&#111;&#x6d;<i class="fas fa-external-link-alt"></i></a></p>
 <p>web前端面试-面试官系列：</p>
 <p><a class="link"   target="_blank" rel="noopener" href="https://vue3js.cn/interview/vue/vue.html" >https://vue3js.cn/interview/vue/vue.html<i class="fas fa-external-link-alt"></i></a></p>
+<h1 id="Vue是什么"><a href="#Vue是什么" class="headerlink" title="Vue是什么"></a>Vue是什么</h1><p>Vue是一套用于构建用户界面的渐进式框架，所谓渐进式就是Vue只做自己改做的事情，不做职责以外的事，Vue的核心库只关注视图层，</p>
+<p>非常容易与其它库或已有项目整合</p>
 <h1 id="Vue响应式原理"><a href="#Vue响应式原理" class="headerlink" title="Vue响应式原理"></a>Vue响应式原理</h1><blockquote>
 <p>Vue 的响应式原理是核心是通过  <code>Object.defindeProperty</code> 中的访问器属性中的 get 和 set 方法，data 中声明的属性都被添加了访问器属性，当读取 data 中的数据时自动调用 get 方法，当修改 data 中的数据时，自动调用 set 方法，检测到数据的变化，会通知观察者 Wacher，观察者 Wacher自动触发重新render 当前组件（子组件不会重新渲染）,生成新的虚拟 DOM 树，Vue 框架会遍历并对比新虚拟 DOM 树和旧虚拟 DOM 树中每个节点的差别，并记录下来，最后，加载操作，将所有记录的不同点，局部修改到真实 DOM树上。</p>
 </blockquote>
@@ -251,8 +253,13 @@
 <li><code>setImmediate</code></li>
 <li>如果以上都不行则采用<code>setTimeout</code></li>
 </ul>
-<h1 id="Vue生命周期"><a href="#Vue生命周期" class="headerlink" title="Vue生命周期"></a>Vue生命周期</h1><p>beforeCreate	created	beforeMount	mounted	beforeUpdate	updated	beforeDestroy	destroyed	errorCaptured</p>
-<h1 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h1><p><strong>mode</strong>:hash   history</p>
+<h1 id="Vue生命周期"><a href="#Vue生命周期" class="headerlink" title="Vue生命周期"></a>Vue生命周期</h1><p>首先，我们先来了解一下‘’生命周期‘’这个词</p>
+<p>通俗来讲，生命周期就是一个事务从出生到消失的过程</p>
+<p>在vue中，vue的生命周期是指：从创建vue对象到销毁vue对象的过程，</p>
+<p>钩子函数是Vue框架中内置的一些函数，随着生命周期	阶段，自动执行，</p>
+<p>beforeCreate	created	beforeMount	mounted	beforeUpdate	updated	beforeDestroy	destroyed	errorCaptured</p>
+<h1 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h1><p>Vue Router 是 <a class="link"   target="_blank" rel="noopener" href="http://v3.vuejs.org/" >Vue.js<i class="fas fa-external-link-alt"></i></a> 的官方路由，让用 Vue.js 构建单页应用变得轻而易举。</p>
+<p><strong>mode</strong>:hash   history</p>
 <p>跳转：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">this.$router.push()		</span><br><span class="line">&lt;router-link to = &#x27; &#x27;&gt;&lt;/router-link&gt;</span><br></pre></td></tr></table></figure>
 
@@ -331,7 +338,7 @@
             </div>
         
         <div class="theme-info info-item">
-            <a target="_blank" href="https://hexo.io">Hexo</a> 框架&nbsp;|&nbsp;主題&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
         </div>
         
             <div class="icp-info info-item"><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">豫ICP证000000000001</a></div>
@@ -410,7 +417,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">Vue响应式原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F%E5%92%8C%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">发布订阅模式和观察者模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8-Virtual-DOM"><span class="nav-number">3.</span> <span class="nav-text">为什么使用 Virtual DOM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VDOM%EF%BC%9A%E4%B8%89%E4%B8%AA-part"><span class="nav-number">4.</span> <span class="nav-text">VDOM：三个 part</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vue-%E5%92%8C-react%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B"><span class="nav-number">5.</span> <span class="nav-text">vue 和 react技术选型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nextTick"><span class="nav-number">6.</span> <span class="nav-text">nextTick</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">7.</span> <span class="nav-text">Vue生命周期</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vue-router"><span class="nav-number">8.</span> <span class="nav-text">vue-router</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vuex"><span class="nav-number">9.</span> <span class="nav-text">vuex</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vue3%E5%B8%A6%E6%9D%A5%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7-x2F-%E4%BA%AE%E7%82%B9"><span class="nav-number">10.</span> <span class="nav-text">vue3带来的新特性&#x2F;亮点</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.</span> <span class="nav-text">Vue是什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">Vue响应式原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F%E5%92%8C%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">发布订阅模式和观察者模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8-Virtual-DOM"><span class="nav-number">4.</span> <span class="nav-text">为什么使用 Virtual DOM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VDOM%EF%BC%9A%E4%B8%89%E4%B8%AA-part"><span class="nav-number">5.</span> <span class="nav-text">VDOM：三个 part</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vue-%E5%92%8C-react%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B"><span class="nav-number">6.</span> <span class="nav-text">vue 和 react技术选型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nextTick"><span class="nav-number">7.</span> <span class="nav-text">nextTick</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">8.</span> <span class="nav-text">Vue生命周期</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vue-router"><span class="nav-number">9.</span> <span class="nav-text">vue-router</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vuex"><span class="nav-number">10.</span> <span class="nav-text">vuex</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vue3%E5%B8%A6%E6%9D%A5%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7-x2F-%E4%BA%AE%E7%82%B9"><span class="nav-number">11.</span> <span class="nav-text">vue3带来的新特性&#x2F;亮点</span></a></li></ol>
     </div>
 </div>
         </aside>
@@ -432,7 +439,7 @@
                 <input autocomplete="off"
                        autocorrect="off"
                        autocapitalize="off"
-                       placeholder="搜尋..."
+                       placeholder="搜索..."
                        spellcheck="false"
                        type="search"
                        class="search-input"
