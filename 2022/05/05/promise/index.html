@@ -9,7 +9,7 @@
     
     <title>
         
-            杂七杂八 |
+            promise和async/await介绍 |
         
         Continue Study
     </title>
@@ -139,7 +139,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">杂七杂八</span>
+            <span class="title-hover-animation">promise和async/await介绍</span>
         </div>
 
         
@@ -158,21 +158,32 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-04-29 21:04:05</span>
-        <span class="mobile">2022-04-29 21:04</span>
+        <span class="pc">2022-05-05 08:39:18</span>
+        <span class="mobile">2022-05-05 08:39</span>
     </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/JS%E9%AB%98%E9%A2%91%E7%9F%A5%E8%AF%86%E7%82%B9/">JS高频知识点</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
     
     
 
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>140 字數</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>578 字數</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>1 分鐘</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>2 分鐘</span>
         </span>
     
     
@@ -188,11 +199,22 @@
         
 
         <div class="article-content markdown-body">
-            <h1 id="JS更新页面代码"><a href="#JS更新页面代码" class="headerlink" title="JS更新页面代码"></a>JS更新页面代码</h1><p>location.reload()</p>
-<h1 id="VUE中样式只在当前页面生效"><a href="#VUE中样式只在当前页面生效" class="headerlink" title="VUE中样式只在当前页面生效"></a>VUE中样式只在当前页面生效</h1><p> 只需要在style中加上scoped</p>
-<h1 id="使用原生js写一个删除提示弹出框"><a href="#使用原生js写一个删除提示弹出框" class="headerlink" title="使用原生js写一个删除提示弹出框"></a>使用原生js写一个删除提示弹出框</h1><p>原本的删除方法用自定义的包装一下：	<br>        if(confirm(‘确定要删除吗’)&#x3D;&#x3D;true){<br>                    this.handleDelete(row)<br>        }</p>
-<h1 id="Windows设置自己的程序开机自动启动"><a href="#Windows设置自己的程序开机自动启动" class="headerlink" title="Windows设置自己的程序开机自动启动"></a>Windows设置自己的程序开机自动启动</h1><p>cmd打开运行，输入shell:startup，回车，也可以快速打开启动文件夹。把需要开机启动的快捷方式拉到目录下</p>
-<h1 id="JavaScript-setTimeout-用法"><a href="#JavaScript-setTimeout-用法" class="headerlink" title="JavaScript setTimeout() 用法"></a>JavaScript setTimeout() 用法</h1><p>setTimeout(“alert(‘对不起, 要你久候’)”, 3000 )</p>
+            <h1 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h1><p>Promise是一个原生对象，是一种异步编程的解决方案，可以替换掉传统的回调函数解决方案，</p>
+<p>promise构造函数接收一个函数作为参数，该函数的两个参数为resolve,reject。异步任务执行成功时调用resolve函数返回结果，执行失败调用reject</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function fn(str)&#123;</span><br><span class="line">           var p=new Promise(function(resolve,reject)&#123;</span><br><span class="line">               //处理异步任务</span><br><span class="line">               var flag=true;</span><br><span class="line">               setTimeout(function()&#123;</span><br><span class="line">                   if(flag)&#123;</span><br><span class="line">                       resolve(str)</span><br><span class="line">                   &#125;</span><br><span class="line">                   else&#123;</span><br><span class="line">                       reject(&#x27;操作失败&#x27;)</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;)</span><br><span class="line">           &#125;)</span><br><span class="line">           return p;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+<p>Promise对象的then方法用来接收处理成功时响应的数据，catch方法用来接收处理失败时相应的数据。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">fn(&#x27;武林要以和为贵&#x27;)</span><br><span class="line">    .then((data)=&gt;&#123;</span><br><span class="line">        console.log(data);</span><br><span class="line">        return fn(&#x27;要讲武德&#x27;);</span><br><span class="line">    &#125;)</span><br><span class="line">    .then((data)=&gt;&#123;</span><br><span class="line">        console.log(data);</span><br><span class="line">        return fn(&#x27;不要搞窝里斗&#x27;)</span><br><span class="line">    &#125;)</span><br><span class="line">    .then((data)=&gt;&#123;</span><br><span class="line">        console.log(data);</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch((data)=&gt;&#123;</span><br><span class="line">        console.log(data);</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>但是Promise最大的问题就是代码冗余，原来的异步任务被Promise封装一下，不管什么操作都用than，就会导致一眼看过去全是than…than…than…,这样也是不利于代码维护的。</p>
+<p>所以下面的async&#x2F;await 可以时代码看起来更像同步代码。</p>
+<h1 id="async-x2F-await"><a href="#async-x2F-await" class="headerlink" title="async&#x2F;await"></a>async&#x2F;await</h1><p>首先我们看async关键字，他作为一个关键字放到声明函数前面，表示该函数为一个异步任务，不会阻塞后面函数的执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">async function fn()&#123;</span><br><span class="line">            return &#x27;不讲武德&#x27;;</span><br><span class="line">&#125;</span><br><span class="line">        console.log(fn());</span><br></pre></td></tr></table></figure>
+
+<p>await关键字只能在使用async定义的函数中使用</p>
+<p>await后面可以直接跟一个 Promise实例对象（可以跟任何表达式，更多的是跟一个返回Promise对象的表达式）</p>
+<p>await可以直接拿到Promise中resolve中的数据。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>总结一下，当我们写代码遇到异步回调时，我们想让异步代码按照我们想要的顺序执行，如果按照传统的嵌套方式，就会出现回调地狱，这样的代码不利于维护，我们可以通过Promise对象进行链式编程来解决，这样尽管可以解决问题，但是ES7给我们提供了更加舒适的async&#x2F;await语法糖，可以使得异步代码看起来更像是同步代码。</p>
 
         </div>
 
@@ -203,29 +225,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2022/04/30/%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">高频面试题总结</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/04/29/vue3biji/"
+                           href="/2022/05/04/JS%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93(%E5%9F%BA%E7%A1%80%E7%AF%87)/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Vue3 笔记</span>
+                                <span class="post-nav-title-item">JS面试题总结(基础篇)</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -345,7 +352,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JS%E6%9B%B4%E6%96%B0%E9%A1%B5%E9%9D%A2%E4%BB%A3%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">JS更新页面代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VUE%E4%B8%AD%E6%A0%B7%E5%BC%8F%E5%8F%AA%E5%9C%A8%E5%BD%93%E5%89%8D%E9%A1%B5%E9%9D%A2%E7%94%9F%E6%95%88"><span class="nav-number">2.</span> <span class="nav-text">VUE中样式只在当前页面生效</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%8E%9F%E7%94%9Fjs%E5%86%99%E4%B8%80%E4%B8%AA%E5%88%A0%E9%99%A4%E6%8F%90%E7%A4%BA%E5%BC%B9%E5%87%BA%E6%A1%86"><span class="nav-number">3.</span> <span class="nav-text">使用原生js写一个删除提示弹出框</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Windows%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%B7%B1%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%90%AF%E5%8A%A8"><span class="nav-number">4.</span> <span class="nav-text">Windows设置自己的程序开机自动启动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-setTimeout-%E7%94%A8%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">JavaScript setTimeout() 用法</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Promise"><span class="nav-number">1.</span> <span class="nav-text">Promise</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#async-x2F-await"><span class="nav-number">2.</span> <span class="nav-text">async&#x2F;await</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">2.0.1.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
         </aside>
