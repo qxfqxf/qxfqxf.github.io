@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Continue Study">
+    
+    <title>
+        
+            promise和async/await介绍 |
+        
+        Continue Study
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/1.jpg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-Hans","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/1.jpg","favicon":"/images/1.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"黄色的森林分出两条路，我选择了人迹更少的那一条，从此决定我一生的道路。"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Continue Study
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                目录
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">目录</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">promise和async/await介绍</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/1.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Continue Study</span>
+                        
+                            <span class="author-label">Lv2</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-05-06 15:10:04</span>
+        <span class="mobile">2022-05-06 15:10</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/">面试题总结</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>5.2k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>18 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="说说你对盒子模型的理解"><a href="#说说你对盒子模型的理解" class="headerlink" title="说说你对盒子模型的理解"></a>说说你对盒子模型的理解</h1><p>当对一个文档进行布局（layout）的时候，浏览器的渲染引擎会根据标准之一的 CSS 基础框盒模型（CSS basic box model），将所有元素表示为一个个矩形的盒子（box）</p>
+<p>一个盒子由四个部分组成：<code>content</code>、<code>padding</code>、<code>border</code>、<code>margin</code></p>
+<p><code>content</code>，即实际内容，显示文本和图像</p>
+<p><code>boreder</code>，即边框，围绕元素内容的内边距的一条或多条线，由粗细、样式、颜色三部分组成</p>
+<p><code>padding</code>，即内边距，清除内容周围的区域，内边距是透明的，取值不能为负，受盒子的<code>background</code>属性影响</p>
+<p><code>margin</code>，即外边距，在元素外创建额外的空白，空白通常指不能放其他元素的区域</p>
+<p>在<code>CSS</code>中，盒子模型可以分成：</p>
+<ul>
+<li>W3C 标准盒子模型</li>
+<li>IE 怪异盒子模型</li>
+</ul>
+<p>默认情况下，盒子模型为<code>W3C</code> 标准盒子模型</p>
+<h2 id="标准盒子模型"><a href="#标准盒子模型" class="headerlink" title="标准盒子模型"></a>标准盒子模型</h2><p>标准盒子模型，是浏览器默认的盒子模型</p>
+<p>也就是，<code>width/height</code> 只是内容高度，不包含 <code>padding</code> 和 <code>border</code>值</p>
+<h2 id="IE-怪异盒子模型"><a href="#IE-怪异盒子模型" class="headerlink" title="IE 怪异盒子模型"></a>IE 怪异盒子模型</h2><p>也就是，<code>width/height</code> 包含了 <code>padding</code>和 <code>border值</code></p>
+<h1 id="css选择器有哪些？优先级？哪些属性可以继承？"><a href="#css选择器有哪些？优先级？哪些属性可以继承？" class="headerlink" title="css选择器有哪些？优先级？哪些属性可以继承？"></a>css选择器有哪些？优先级？哪些属性可以继承？</h1><ul>
+<li>id选择器（#box），选择id为box的元素</li>
+<li>类选择器（.one），选择类名为one的所有元素</li>
+<li>标签选择器（div），选择标签为div的所有元素</li>
+<li>后代选择器（#box div），选择id为box元素内部所有的div元素</li>
+<li>子选择器（.one&gt;one_1），选择父元素为.one的所有.one_1的元素</li>
+<li>相邻同胞选择器（.one+.two），选择紧接在.one之后的所有.two元素</li>
+<li>群组选择器（div,p），选择div、p的所有元素</li>
+</ul>
+<h2 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h2><p>内联 &gt; ID选择器 &gt; 类选择器 &gt; 标签选择器</p>
+<h2 id="继承属性"><a href="#继承属性" class="headerlink" title="继承属性"></a>继承属性</h2><p>在<code>css</code>中，继承是指的是给父元素设置一些属性，后代元素会自动拥有这些属性</p>
+<h1 id="元素水平垂直居中的方法有哪些？如果元素不定宽高呢？"><a href="#元素水平垂直居中的方法有哪些？如果元素不定宽高呢？" class="headerlink" title="元素水平垂直居中的方法有哪些？如果元素不定宽高呢？"></a>元素水平垂直居中的方法有哪些？如果元素不定宽高呢？</h1><p>实现元素水平垂直居中的方式：</p>
+<ul>
+<li><p>利用定位+margin:auto</p>
+</li>
+<li><p>利用定位+margin:负值</p>
+</li>
+<li><p>利用定位+transform</p>
+</li>
+<li><p>table布局</p>
+</li>
+<li><p>flex布局</p>
+<ul>
+<li>grid布局</li>
+</ul>
+<h1 id="怎么理解回流跟重绘？什么场景下会触发？"><a href="#怎么理解回流跟重绘？什么场景下会触发？" class="headerlink" title="怎么理解回流跟重绘？什么场景下会触发？         *"></a>怎么理解回流跟重绘？什么场景下会触发？         *</h1></li>
+</ul>
+<p>回流：布局引擎会根据各种样式计算每个盒子在s页面上的大小与位置</p>
+<p>重绘：当计算好盒模型的位置、大小及其他属性后，浏览器根据每个盒子特性进行绘制</p>
+<p>· 重绘：当渲染树中的元素外观（如：颜色）发生改变，不影响布局时，产生重绘</p>
+<p>· 回流：当渲染树中的元素的布局（如：尺寸、位置、隐藏&#x2F;状态状态）发生改变时，产生重绘回流</p>
+<p>· 回流必将引起重绘，而重绘不一定会引起回流</p>
+<h1 id="什么是响应式设计？响应式设计的基本原理是什么？如何做？"><a href="#什么是响应式设计？响应式设计的基本原理是什么？如何做？" class="headerlink" title="什么是响应式设计？响应式设计的基本原理是什么？如何做？"></a>什么是响应式设计？响应式设计的基本原理是什么？如何做？</h1><h2 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h2><p>面对不同分辨率设备灵活性强</p>
+<p>能够快捷解决多设备显示适应问题</p>
+<h2 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h2><p>仅适用布局、信息、框架并不复杂的部门类型网站</p>
+<p>兼容各种设备工作量大，效率低下</p>
+<p>代码累赘，会出现隐藏无用的元素，加载时间加长</p>
+<p>其实这是一种折中性质的设计解决方案，多方面因素影响而达不到最佳效果</p>
+<p>一定程度上改变了网站原有的布局结构，会出现用户混淆的情况</p>
+<h1 id="如果要做优化，CSS提高性能的方法有哪些？"><a href="#如果要做优化，CSS提高性能的方法有哪些？" class="headerlink" title="如果要做优化，CSS提高性能的方法有哪些？"></a>如果要做优化，CSS提高性能的方法有哪些？</h1><p>每一个网页都离不开<code>css</code>，但是很多人又认为，<code>css</code>主要是用来完成页面布局的，像一些细节或者优化，</p>
+<p>减少css嵌套，最好不要套三层以上。</p>
+<p>不要在ID选择器前面进行嵌套，ID本来就是唯一的而且人家权值那么大，嵌套完全是浪费性能。</p>
+<p>建立公共样式类，把相同样式提取出来作为公共类使用，比如我们常用的清除浮动等。	</p>
+<p>不用css表达式，表达式只是让你的代码显得更加炫酷，但是他对性能的浪费可能是超乎你的想象的。</p>
+<h1 id="对前端工程师这个职位是怎么样理解的？它的前景会怎么样"><a href="#对前端工程师这个职位是怎么样理解的？它的前景会怎么样" class="headerlink" title="对前端工程师这个职位是怎么样理解的？它的前景会怎么样?"></a>对前端工程师这个职位是怎么样理解的？它的前景会怎么样?</h1><p>我们前端是最贴近用户的程序员，主要负责实现界面交互，提升用户体验 , 前端的能力就是能让产品从 90分进化到 100 分，甚至更好，</p>
+<p>前景：前景无疑是值得肯定的，也需要我们时刻关注最新的技术，这会是一个时刻都在学习的道路</p>
+<h1 id="说说JavaScript中的数据类型？存储上的差别？"><a href="#说说JavaScript中的数据类型？存储上的差别？" class="headerlink" title="说说JavaScript中的数据类型？存储上的差别？"></a>说说JavaScript中的数据类型？存储上的差别？</h1><p>js的数据类型分为两类，一个是基本数据类型，一个是引用数据类型</p>
+<p>基本数据类型有undefined<code>、</code>null<code>、</code>boolean<code>、</code>number<code>、</code>string<code>、</code>symbol</p>
+<p>引用数据类型有	object</p>
+<p>在js的执行过程中，主要有三种数据类型内存空间，分别是代码空间，栈空间，堆空间，其中的代码空间主要是存储可执行代码的，原始类型的数据值都是直接保存在栈中的，引用数据类型的值是存放在堆空间中的，   原始数据类型存储的是变量的值，而引用数据类型存储的是其在堆空间中的地址。</p>
+<h1 id="typeof-与-instanceof-区别"><a href="#typeof-与-instanceof-区别" class="headerlink" title="typeof 与 instanceof 区别"></a>typeof 与 instanceof 区别</h1><p>typeof 对于原始数据类型来说，除了null都可以正确的显示类型</p>
+<p>对于引用数据类型来说，除了函数，都会显示object  </p>
+<p>这样看来typeof它并不能正确的显示数据类型，</p>
+<p>instanceof 可以正确显示数据类型， 因为它是通过对象的原型链来进行判断的，</p>
+<h1 id="说说你对闭包的理解？闭包使用场景"><a href="#说说你对闭包的理解？闭包使用场景" class="headerlink" title="说说你对闭包的理解？闭包使用场景"></a>说说你对闭包的理解？闭包使用场景</h1><p>闭包就是可以访问其他函数内部变量的函数，我们通常用它来定义私有化的变量和方法，创建一个闭包最简单的方法就是在一个函数内创建一个函数，它有三个特性是  函数内可以再嵌套函数，内部函数可以访问外部的方法和变量，方法和变量不会被垃圾回收机制回收，</p>
+<p>它的优点就是可以实现封装和缓存，缺点就是可能会造成内存泄漏的问题</p>
+<h1 id="bind、call、apply-区别？如何实现一个bind"><a href="#bind、call、apply-区别？如何实现一个bind" class="headerlink" title="bind、call、apply 区别？如何实现一个bind?"></a>bind、call、apply 区别？如何实现一个bind?</h1><ul>
+<li><p><code>call</code> 和 <code>apply</code> 都是为了解决改变 <code>this</code> 的指向。作用都是相同的，只是传参的方式不同。</p>
+</li>
+<li><p>除了第一个参数外，<code>call</code> 可以接收一个参数列表，<code>apply</code> 只接受一个参数数组</p>
+</li>
+<li><p>call和apply他们的返回结果是直接执行的，bind的返回结果是待执行函数</p>
+</li>
+<li><p><code>bind</code> 和其他两个方法作用也是一致的，只是该方法会返回一个函数。并且我们可以通过 <code>bind</code> 实现柯里化       柯里化技术，<strong>主要体现在函数里面返回函数</strong>。</p>
+<p><strong>实现<code>bind</code>的步骤，我们可以分解成为三部分：</strong></p>
+<ul>
+<li><p>修改<code>this</code>指向</p>
+<p>动态传递参数</p>
+</li>
+<li><p>兼容<code>new</code>关键字</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="说说你对事件循环的理解"><a href="#说说你对事件循环的理解" class="headerlink" title="说说你对事件循环的理解            *"></a>说说你对事件循环的理解            *</h1><p>首先，<code>JavaScript</code>是一门单线程的语言，意味着同一时间内只能做一件事，但是这并不意味着单线程就是阻塞，而实现单线程非阻塞的方法就是事件循环</p>
+<p>在<code>JavaScript</code>中，所有的任务都可以分为</p>
+<ul>
+<li><p>同步任务：立即执行的任务，同步任务一般会直接进入到主线程中执行</p>
+</li>
+<li><p>异步任务：异步执行的任务，比如<code>ajax</code>网络请求，<code>setTimeout</code>定时函数等</p>
+<p>同步任务进入主线程，异步任务进入任务队列，主线程内的任务执行完毕为空，会去任务队列读取对应的任务，推入主线程执行。上述过程的不断重复就事件循环</p>
+<p><strong>异步任务还可以细分为微任务与宏任务</strong></p>
+</li>
+</ul>
+<h2 id="宏任务与微任务"><a href="#宏任务与微任务" class="headerlink" title="宏任务与微任务"></a>宏任务与微任务</h2><h3 id="微任务"><a href="#微任务" class="headerlink" title="微任务"></a>微任务</h3><p>一个需要异步执行的函数，执行时机是在主函数执行结束之后、当前宏任务结束之前</p>
+<p>常见的微任务有：</p>
+<ul>
+<li>Promise.then</li>
+<li>MutaionObserver</li>
+<li>Object.observe（已废弃；Proxy 对象替代）</li>
+<li>process.nextTick（Node.js）</li>
+</ul>
+<h3 id="宏任务"><a href="#宏任务" class="headerlink" title="宏任务"></a>宏任务</h3><p>宏任务的时间粒度比较大，执行的时间间隔是不能精确控制的，对一些高实时性的需求就不太符合</p>
+<p>常见的宏任务有：</p>
+<ul>
+<li><p>script (可以理解为外层同步代码)</p>
+</li>
+<li><p>setTimeout&#x2F;setInterval</p>
+</li>
+<li><p>UI rendering&#x2F;UI事件</p>
+</li>
+<li><p>postMessage、MessageChannel</p>
+</li>
+<li><p>setImmediate、I&#x2F;O（Node.js）</p>
+<h1 id="DOM常见的操作有哪些"><a href="#DOM常见的操作有哪些" class="headerlink" title="DOM常见的操作有哪些				*"></a>DOM常见的操作有哪些				*</h1></li>
+</ul>
+<p><strong>1.查找节点. 2.新建节点. 3.添加新节点. 4.删除节点. 5.设置样式</strong>. </p>
+<h1 id="说说你对BOM的理解，常见的BOM对象你了解哪些？"><a href="#说说你对BOM的理解，常见的BOM对象你了解哪些？" class="headerlink" title="说说你对BOM的理解，常见的BOM对象你了解哪些？ *"></a>说说你对BOM的理解，常见的BOM对象你了解哪些？ *</h1><p><code>BOM</code> (Browser Object Model)，浏览器对象模型，提供了独立于内容与浏览器窗口进行交互的对象</p>
+<p>其作用就是跟浏览器做一些交互效果,比如如何进行页面的后退，前进，刷新，浏览器的窗口发生变化，滚动条的滚动，以及获取客户的一些信息如：浏览器品牌版本，屏幕分辨率</p>
+<p>浏览器的全部内容可以看成<code>DOM</code>，整个浏览器可以看成<code>BOM</code>。</p>
+<h1 id="Javascript本地存储的方式有哪些？区别及应用场景？"><a href="#Javascript本地存储的方式有哪些？区别及应用场景？" class="headerlink" title="Javascript本地存储的方式有哪些？区别及应用场景？"></a>Javascript本地存储的方式有哪些？区别及应用场景？</h1><p><code>javaScript</code>本地缓存的方法我们主要讲述以下四种：</p>
+<ul>
+<li>cookie</li>
+<li>sessionStorage</li>
+<li>localStorage</li>
+<li>indexedDB</li>
+</ul>
+<h3 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h3><p><code>Cookie</code>，类型为「小型文本文件」，指某些网站为了辨别用户身份而储存在用户本地终端上的数据。是为了解决 <code>HTTP</code>无状态导致的问题</p>
+<p>作为一段一般不超过 4KB 的小型文本数据，它由一个名称（Name）、一个值（Value）和其它几个用于控制 <code>cookie</code>有效期、安全性、使用范围的可选属性组成</p>
+<p>但是<code>cookie</code>在每次请求中都会被发送，如果不使用 <code>HTTPS</code>并对其加密，其保存的信息很容易被窃取，导致安全风险。</p>
+<h3 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h3><p><code>HTML5</code>新方法</p>
+<ul>
+<li>生命周期：持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的</li>
+<li>存储的信息在同一域中是共享的</li>
+<li>当本页操作（新增、修改、删除）了<code>localStorage</code>的时候，本页面不会触发<code>storage</code>事件,但是别的页面会触发<code>storage</code>事件。</li>
+<li>大小：5M（跟浏览器厂商有关系）</li>
+<li><code>localStorage</code>本质上是对字符串的读取，如果存储内容多的话会消耗内存空间，会导致页面变卡</li>
+<li>受同源策略的限制</li>
+</ul>
+<p>下面再看看关于<code>localStorage</code>的使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localStorage.setItem(&#x27;username&#x27;,&#x27;cfangxu&#x27;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localStorage.getItem(&#x27;username&#x27;)	</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localStorage.removeItem(&#x27;username&#x27;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localStorage.clear()</span><br></pre></td></tr></table></figure>
+
+<p><code>localStorage</code> 也不是完美的，它有两个缺点：</p>
+<ul>
+<li>无法像<code>Cookie</code>一样设置过期时间</li>
+<li>只能存入字符串，无法直接存对象</li>
+</ul>
+<h3 id="sessionStorage"><a href="#sessionStorage" class="headerlink" title="sessionStorage"></a>sessionStorage</h3><p><code>sessionStorage</code>和 <code>localStorage</code>使用方法基本一致，唯一不同的是生命周期，一旦页面（会话）关闭，<code>sessionStorage</code> 将会删除数据</p>
+<p>**indexedDB **用于客户端存储大量结构化数据(包括, 文件&#x2F; blobs)。该API使用索引来实现对该数据的高性能搜索</p>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>关于<code>cookie</code>、<code>sessionStorage</code>、<code>localStorage</code>三者的区别主要如下：</p>
+<ul>
+<li>存储大小：<code>cookie</code>数据大小不能超过<code>4k</code>，<code>sessionStorage</code>和<code>localStorage</code>虽然也有存储大小的限制，但比<code>cookie</code>大得多，可以达到5M或更大</li>
+<li>有效时间：<code>localStorage</code>存储持久数据，浏览器关闭后数据不丢失除非主动删除数据； <code>sessionStorage</code>数据在当前浏览器窗口关闭后自动删除；<code>cookie</code>设置的<code>cookie</code>过期时间之前一直有效，即使窗口或浏览器关闭</li>
+<li>数据与服务器之间的交互方式，<code>cookie</code>的数据会自动的传递到服务器，服务器端也可以写<code>cookie</code>到客户端； <code>sessionStorage</code>和<code>localStorage</code>不会自动把数据发给服务器，仅在本地保存</li>
+</ul>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p>在了解了上述的前端的缓存方式后，我们可以看看针对不对场景的使用选择：</p>
+<ul>
+<li>标记用户与跟踪用户行为的情况，推荐使用<code>cookie</code></li>
+<li>适合长期保存在本地的数据（令牌），推荐使用<code>localStorage</code></li>
+<li>敏感账号一次性登录，推荐使用<code>sessionStorage</code></li>
+<li>存储大量数据的情况、在线文档（富文本编辑器）保存编辑历史的情况，推荐使用<code>indexedDB</code></li>
+</ul>
+<h1 id="什么是防抖和节流？有什么区别？如何实现？"><a href="#什么是防抖和节流？有什么区别？如何实现？" class="headerlink" title="什么是防抖和节流？有什么区别？如何实现？"></a>什么是防抖和节流？有什么区别？如何实现？</h1><ul>
+<li>节流: n 秒内只运行一次，若在 n 秒内重复触发，只有一次生效</li>
+<li>防抖: n 秒后在执行该事件，若在 n 秒内被重复触发，则重新计时</li>
+</ul>
+<p>一个经典的比喻:</p>
+<p>想象每天上班大厦底下的电梯。把电梯完成一次运送，类比为一次函数的执行和响应</p>
+<p>假设电梯有两种运行策略 <code>debounce</code> 和 <code>throttle</code>，超时设定为15秒，不考虑容量限制</p>
+<p>电梯第一个人进来后，15秒后准时运送一次，这是节流</p>
+<p>电梯第一个人进来后，等待15秒。如果过程中又有人进来，15秒等待重新计时，直到15秒后开始运送，这是防抖</p>
+<h2 id="区别-1"><a href="#区别-1" class="headerlink" title="区别"></a>区别</h2><p>相同点：</p>
+<ul>
+<li>都可以通过使用 <code>setTimeout</code> 实现</li>
+<li>目的都是，降低回调执行频率。节省计算资源</li>
+</ul>
+<p>不同点：</p>
+<ul>
+<li>函数防抖，在一段连续操作结束后，处理回调，利用<code>clearTimeout</code>和 <code>setTimeout</code>实现。函数节流，在一段连续操作中，每一段时间只执行一次，频率较高的事件中使用来提高性能</li>
+<li>函数防抖关注一定时间连续触发的事件，只在最后执行一次，而函数节流一段时间内只执行一次</li>
+</ul>
+<h2 id="应用场景-1"><a href="#应用场景-1" class="headerlink" title="应用场景"></a>应用场景</h2><p>防抖在连续的事件，只需触发一次回调的场景有：</p>
+<ul>
+<li>搜索框搜索输入。只需用户最后一次输入完，再发送请求</li>
+<li>手机号、邮箱验证输入检测</li>
+<li>窗口大小<code>resize</code>。只需窗口调整完成后，计算窗口大小。防止重复渲染。</li>
+</ul>
+<p>节流在间隔一段时间执行一次回调的场景有：</p>
+<ul>
+<li>滚动加载，加载更多或滚到底部监听</li>
+<li>搜索框，搜索联想功能</li>
+</ul>
+<h1 id="如何通过JS判断一个数组"><a href="#如何通过JS判断一个数组" class="headerlink" title="如何通过JS判断一个数组"></a>如何通过JS判断一个数组</h1><p>typeof方法</p>
+<p><code>instanceof</code>方法		</p>
+<ul>
+<li><code>instanceof</code> 运算符是用来测试一个对象是否在其原型链原型构造函数的属性</li>
+</ul>
+<p><code>constructor</code>方法</p>
+<ul>
+<li><code>constructor</code>属性返回对创建此对象的数组函数的引用，就是返回对象相对应的构造函数</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = [];</span><br><span class="line">arr.constructor == Array; //true</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>ES5</code>新增方法<code>isArray()</code></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = new Array(123);</span><br><span class="line">var b = new Date();</span><br><span class="line">console.log(Array.isArray(a)); //true</span><br><span class="line">console.log(Array.isArray(b)); //false</span><br></pre></td></tr></table></figure>
+
+<h1 id="说说你对作用域链的理解"><a href="#说说你对作用域链的理解" class="headerlink" title="说说你对作用域链的理解"></a>说说你对作用域链的理解</h1><ul>
+<li>作用域链的作用是保证执行环境里有权访问的变量和函数是有序的，作用域链的变量只能向上访问，变量访问到<code>window</code>对象即被终止，作用域链向下访问变量是不被允许的</li>
+<li>简单的说，作用域就是变量与函数的可访问范围，即作用域控制着变量与函数的可见性和生命周期</li>
+</ul>
+<h1 id="JavaScript原型，原型链-有什么特点？"><a href="#JavaScript原型，原型链-有什么特点？" class="headerlink" title="JavaScript原型，原型链 ? 有什么特点？"></a>JavaScript原型，原型链 ? 有什么特点？</h1><ul>
+<li>每个对象都会在其内部初始化一个属性，就是<code>__proto__</code>，当我们访问一个对象的属性时</li>
+<li>如果这个对象内部不存在这个属性，那么他就会去<code>__proto__</code>里找这个属性，这个<code>__proto__</code>又会有自己的<code>__proto__</code>，于是就这样一直找下去，也就是我们平时所说的原型链的概念。</li>
+<li><strong>原型特点：</strong><ul>
+<li><code>JavaScript</code>对象是通过引用来传递的，当修改原型时，与之相关的对象也会继承这一改变</li>
+</ul>
+</li>
+</ul>
+<h1 id="请解释什么是事件代理"><a href="#请解释什么是事件代理" class="headerlink" title="请解释什么是事件代理"></a>请解释什么是事件代理</h1><ul>
+<li>事件代理（<code>Event Delegation</code>），又称之为事件委托。是 <code>JavaScript</code> 中常用绑定事件的常用技巧。顾名思义，“事件代理”即是把原本需要绑定的事件委托给父元素，让父元素担当事件监听的职务。事件代理的原理是DOM元素的事件冒泡。使用事件代理的好处是可以提高性能</li>
+<li>可以大量节省内存占用，减少事件注册，比如在<code>table</code>上代理所有<code>td</code>的<code>click</code>事件就非常棒</li>
+<li>可以实现当新增子对象时无需再次对其绑定</li>
+</ul>
+<h1 id="谈谈This对象的理解"><a href="#谈谈This对象的理解" class="headerlink" title="谈谈This对象的理解"></a>谈谈This对象的理解</h1><ul>
+<li><code>this</code>总是指向函数的直接调用者（而非间接调用者）</li>
+<li>如果有<code>new</code>关键字，<code>this</code>指向<code>new</code>出来的那个对象<ul>
+<li>在事件中，<code>this</code>指向触发这个事件的对象，</li>
+</ul>
+</li>
+</ul>
+<h1 id="new操作符具体干了什么"><a href="#new操作符具体干了什么" class="headerlink" title="new操作符具体干了什么"></a>new操作符具体干了什么</h1><ul>
+<li>创建一个空对象，并且 <code>this</code> 变量引用该对象，同时还继承了该函数的原型</li>
+<li>属性和方法被加入到 <code>this</code> 引用的对象中</li>
+<li>新创建的对象由 <code>this</code> 所引用，并且最后隐式的返回 <code>this</code></li>
+</ul>
+<h1 id="null，undefined-的区别"><a href="#null，undefined-的区别" class="headerlink" title="null，undefined 的区别"></a>null，undefined 的区别</h1><ul>
+<li><code>undefined</code> 表示不存在这个值。	</li>
+<li><code>null</code> 表示一个对象被定义了，值为“空值”</li>
+</ul>
+<h1 id="javascript-代码中的”use-strict”-是什么意思"><a href="#javascript-代码中的”use-strict”-是什么意思" class="headerlink" title="javascript 代码中的”use strict”;是什么意思"></a>javascript 代码中的”use strict”;是什么意思</h1><ul>
+<li><code>use strict</code>是一种<code>ECMAscript 5</code> 添加的（严格）运行模式,这种模式使得 Javascript 在更严格的条件下运行,使<code>JS</code>编码更加规范化的模式,消除<code>Javascript</code>语法的一些不合理、不严谨之处，减少一些怪异行为</li>
+</ul>
+<h1 id="同步和异步的区别"><a href="#同步和异步的区别" class="headerlink" title="同步和异步的区别"></a>同步和异步的区别</h1><ul>
+<li>同步：浏览器访问服务器请求，用户看得到页面刷新，重新发请求,等请求完，页面刷新，新内容出现，用户看到新内容,进行下一步操作</li>
+<li>异步：浏览器访问服务器请求，用户正常操作，浏览器后端进行请求。等请求完，页面不刷新，新内容也会出现，用户看到新内容</li>
+</ul>
+<p>\26. 谈一谈箭头函数与普通函数的区别</p>
+<p>\27. JS 数组和对象的遍历方式，以及几种方式的比较</p>
+<p>\28. 如何解决跨域问题</p>
+<p>\29. XML和JSON的区别</p>
+<p>\30. 谈谈你对webpack的看法</p>
+<p>\31. webpack的打包原理</p>
+<p>\32. 如何优化webpack打包速度</p>
+<p>\33. 说说webpack中常见的Loader？解决了什么问题？</p>
+<p>\34. 说说webpack中常见的Plugin？解决了什么问题？</p>
+<p>\35. 说说你对promise的了解</p>
+<p>\36. async函数是什么，有什么作用</p>
+<p>\37. 有使用过vue吗？说说你对vue的理解</p>
+<p>\38. 你对SPA单页面的理解，它的优缺点分别是什么？如何实现SPA应用呢</p>
+<p>\39. SPA首屏加载速度慢的怎么解决？</p>
+<p>\40. VUE路由的原理</p>
+<p>\41. Vue中组件和插件有什么区别？</p>
+<p>\42. Vue组件之间的通信方式都有哪些</p>
+<p>\43. 你了解vue的diff算法吗？说说看</p>
+<p>\44. 为什么需要 Virtual Dom</p>
+<p>\45. Vue3.0的设计目标是什么？做了哪些优化</p>
+<p>\46. Vue3.0 所采用的 Composition Api 与 Vue2.x 使用的 Options Api 有什么不同？</p>
+<p>\47. 说一下Vue数据响应式的原理</p>
+<p>\48. 说说对 React 的理解？有哪些特性？</p>
+<p>\49. 说说 Real DOM 和 Virtual DOM 的区别？优缺点？</p>
+<p>\50. 说说 React 生命周期有哪些不同阶段？每个阶段对应的方法是？</p>
+<p>\51. 说说 React中的setState执行机制</p>
+<p>\52. 说说对React中类组件和函数组件的理解？有什么区别？</p>
+<p>\53. 说说对React Hooks的理解？解决了什么问题？</p>
+<p>\54. 说说你对Redux的理解？其工作原理？</p>
+<p>\55. 说说 React 性能优化的手段有哪些</p>
+<p>\56. vue、react、angular 区别</p>
+<p>\57. 说说你对 TypeScript 的理解？与 JavaScript 的区别</p>
+<p>\58. 说说你对 TypeScript 中泛型的理解？应用场景？</p>
+<p>\59. 说说你对微信小程序的理解？优缺点？</p>
+<p>\60. 说说你对发布订阅、观察者模式的理解？区别？</p>
+<p>\61. 项目做过哪些性能优化</p>
+<p>\62. 描述浏览器的渲染过程，DOM树和渲染树的区别</p>
+<p>\63. 你认为什么样的前端代码是好的</p>
+<p>\64. 从浏览器地址栏输入url到显示页面的步骤</p>
+<p>\65. http 请求报文响应报文的格式</p>
+<p>\66. Token cookie session 区别</p>
+<p>\67. CORS跨域的原理</p>
+<p>\68. 什么是MVVM</p>
+<p>\69. 说说你对版本管理的理解？常用的版本管理工具有哪些？</p>
+<p>\70. 说说你对Git的理解？</p>
+<p>\71. 说说Git常用的命令有哪些</p>
+<p>\72. 说说 git 发生冲突的场景？如何解决？</p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>
+        </div>
+
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/05/06/React%E9%9D%A2%E8%AF%95%E9%A2%98(%E8%BF%9B%E9%98%B6%E7%AF%87)/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">React面试题总结(进阶篇)</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Continue Study</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+            <div class="icp-info info-item"><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">豫ICP证000000000001</a></div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">说说你对盒子模型的理解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">标准盒子模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IE-%E6%80%AA%E5%BC%82%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.2.</span> <span class="nav-text">IE 怪异盒子模型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#css%E9%80%89%E6%8B%A9%E5%99%A8%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F%E4%BC%98%E5%85%88%E7%BA%A7%EF%BC%9F%E5%93%AA%E4%BA%9B%E5%B1%9E%E6%80%A7%E5%8F%AF%E4%BB%A5%E7%BB%A7%E6%89%BF%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">css选择器有哪些？优先级？哪些属性可以继承？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">2.1.</span> <span class="nav-text">优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E5%B1%9E%E6%80%A7"><span class="nav-number">2.2.</span> <span class="nav-text">继承属性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%83%E7%B4%A0%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F%E5%A6%82%E6%9E%9C%E5%85%83%E7%B4%A0%E4%B8%8D%E5%AE%9A%E5%AE%BD%E9%AB%98%E5%91%A2%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">元素水平垂直居中的方法有哪些？如果元素不定宽高呢？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3%E5%9B%9E%E6%B5%81%E8%B7%9F%E9%87%8D%E7%BB%98%EF%BC%9F%E4%BB%80%E4%B9%88%E5%9C%BA%E6%99%AF%E4%B8%8B%E4%BC%9A%E8%A7%A6%E5%8F%91%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">怎么理解回流跟重绘？什么场景下会触发？         *</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1%EF%BC%9F%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E5%A6%82%E4%BD%95%E5%81%9A%EF%BC%9F"><span class="nav-number">5.</span> <span class="nav-text">什么是响应式设计？响应式设计的基本原理是什么？如何做？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E7%82%B9%EF%BC%9A"><span class="nav-number">5.1.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%BA%E7%82%B9%EF%BC%9A"><span class="nav-number">5.2.</span> <span class="nav-text">缺点：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E8%A6%81%E5%81%9A%E4%BC%98%E5%8C%96%EF%BC%8CCSS%E6%8F%90%E9%AB%98%E6%80%A7%E8%83%BD%E7%9A%84%E6%96%B9%E6%B3%95%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">如果要做优化，CSS提高性能的方法有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%B9%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BF%99%E4%B8%AA%E8%81%8C%E4%BD%8D%E6%98%AF%E6%80%8E%E4%B9%88%E6%A0%B7%E7%90%86%E8%A7%A3%E7%9A%84%EF%BC%9F%E5%AE%83%E7%9A%84%E5%89%8D%E6%99%AF%E4%BC%9A%E6%80%8E%E4%B9%88%E6%A0%B7"><span class="nav-number">7.</span> <span class="nav-text">对前端工程师这个职位是怎么样理解的？它的前景会怎么样?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4JavaScript%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%9F%E5%AD%98%E5%82%A8%E4%B8%8A%E7%9A%84%E5%B7%AE%E5%88%AB%EF%BC%9F"><span class="nav-number">8.</span> <span class="nav-text">说说JavaScript中的数据类型？存储上的差别？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#typeof-%E4%B8%8E-instanceof-%E5%8C%BA%E5%88%AB"><span class="nav-number">9.</span> <span class="nav-text">typeof 与 instanceof 区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9%E9%97%AD%E5%8C%85%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9F%E9%97%AD%E5%8C%85%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">10.</span> <span class="nav-text">说说你对闭包的理解？闭包使用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bind%E3%80%81call%E3%80%81apply-%E5%8C%BA%E5%88%AB%EF%BC%9F%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAbind"><span class="nav-number">11.</span> <span class="nav-text">bind、call、apply 区别？如何实现一个bind?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">12.</span> <span class="nav-text">说说你对事件循环的理解            *</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1"><span class="nav-number">12.1.</span> <span class="nav-text">宏任务与微任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AE%E4%BB%BB%E5%8A%A1"><span class="nav-number">12.1.1.</span> <span class="nav-text">微任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%8F%E4%BB%BB%E5%8A%A1"><span class="nav-number">12.1.2.</span> <span class="nav-text">宏任务</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM%E5%B8%B8%E8%A7%81%E7%9A%84%E6%93%8D%E4%BD%9C%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="nav-number">13.</span> <span class="nav-text">DOM常见的操作有哪些				*</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9BOM%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%8C%E5%B8%B8%E8%A7%81%E7%9A%84BOM%E5%AF%B9%E8%B1%A1%E4%BD%A0%E4%BA%86%E8%A7%A3%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="nav-number">14.</span> <span class="nav-text">说说你对BOM的理解，常见的BOM对象你了解哪些？ *</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Javascript%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%E7%9A%84%E6%96%B9%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F%E5%8C%BA%E5%88%AB%E5%8F%8A%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%9F"><span class="nav-number">15.</span> <span class="nav-text">Javascript本地存储的方式有哪些？区别及应用场景？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie"><span class="nav-number">15.0.1.</span> <span class="nav-text">cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#localStorage"><span class="nav-number">15.0.2.</span> <span class="nav-text">localStorage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sessionStorage"><span class="nav-number">15.0.3.</span> <span class="nav-text">sessionStorage</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-number">15.1.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">15.2.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81%EF%BC%9F%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%EF%BC%9F"><span class="nav-number">16.</span> <span class="nav-text">什么是防抖和节流？有什么区别？如何实现？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB-1"><span class="nav-number">16.1.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF-1"><span class="nav-number">16.2.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87JS%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E6%95%B0%E7%BB%84"><span class="nav-number">17.</span> <span class="nav-text">如何通过JS判断一个数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">18.</span> <span class="nav-text">说说你对作用域链的理解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript%E5%8E%9F%E5%9E%8B%EF%BC%8C%E5%8E%9F%E5%9E%8B%E9%93%BE-%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9%EF%BC%9F"><span class="nav-number">19.</span> <span class="nav-text">JavaScript原型，原型链 ? 有什么特点？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B7%E8%A7%A3%E9%87%8A%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%8B%E4%BB%B6%E4%BB%A3%E7%90%86"><span class="nav-number">20.</span> <span class="nav-text">请解释什么是事件代理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B0%88%E8%B0%88This%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">21.</span> <span class="nav-text">谈谈This对象的理解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#new%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%85%B7%E4%BD%93%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88"><span class="nav-number">22.</span> <span class="nav-text">new操作符具体干了什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null%EF%BC%8Cundefined-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">23.</span> <span class="nav-text">null，undefined 的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#javascript-%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%9A%84%E2%80%9Duse-strict%E2%80%9D-%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D"><span class="nav-number">24.</span> <span class="nav-text">javascript 代码中的”use strict”;是什么意思</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">25.</span> <span class="nav-text">同步和异步的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">26.</span> <span class="nav-text"></span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>

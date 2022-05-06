@@ -158,8 +158,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-05-05 08:39:18</span>
-        <span class="mobile">2022-05-05 08:39</span>
+        <span class="pc">2022-05-05 17:14:49</span>
+        <span class="mobile">2022-05-05 17:14</span>
     </span>
     
         <span class="article-categories article-meta-item">
@@ -177,13 +177,9 @@
 
     
     
-        <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>578 字數</span>
-        </span>
-    
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>2 分鐘</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>1 Mins</span>
         </span>
     
     
@@ -199,23 +195,7 @@
         
 
         <div class="article-content markdown-body">
-            <h1 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h1><p>Promise是一个原生对象，是一种异步编程的解决方案，可以替换掉传统的回调函数解决方案，</p>
-<p>promise构造函数接收一个函数作为参数，该函数的两个参数为resolve,reject。异步任务执行成功时调用resolve函数返回结果，执行失败调用reject</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function fn(str)&#123;</span><br><span class="line">           var p=new Promise(function(resolve,reject)&#123;</span><br><span class="line">               //处理异步任务</span><br><span class="line">               var flag=true;</span><br><span class="line">               setTimeout(function()&#123;</span><br><span class="line">                   if(flag)&#123;</span><br><span class="line">                       resolve(str)</span><br><span class="line">                   &#125;</span><br><span class="line">                   else&#123;</span><br><span class="line">                       reject(&#x27;操作失败&#x27;)</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;)</span><br><span class="line">           &#125;)</span><br><span class="line">           return p;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
-
-<p>Promise对象的then方法用来接收处理成功时响应的数据，catch方法用来接收处理失败时相应的数据。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">fn(&#x27;武林要以和为贵&#x27;)</span><br><span class="line">    .then((data)=&gt;&#123;</span><br><span class="line">        console.log(data);</span><br><span class="line">        return fn(&#x27;要讲武德&#x27;);</span><br><span class="line">    &#125;)</span><br><span class="line">    .then((data)=&gt;&#123;</span><br><span class="line">        console.log(data);</span><br><span class="line">        return fn(&#x27;不要搞窝里斗&#x27;)</span><br><span class="line">    &#125;)</span><br><span class="line">    .then((data)=&gt;&#123;</span><br><span class="line">        console.log(data);</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch((data)=&gt;&#123;</span><br><span class="line">        console.log(data);</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
-
-<p>但是Promise最大的问题就是代码冗余，原来的异步任务被Promise封装一下，不管什么操作都用than，就会导致一眼看过去全是than…than…than…,这样也是不利于代码维护的。</p>
-<p>所以下面的async&#x2F;await 可以时代码看起来更像同步代码。</p>
-<h1 id="async-x2F-await"><a href="#async-x2F-await" class="headerlink" title="async&#x2F;await"></a>async&#x2F;await</h1><p>首先我们看async关键字，他作为一个关键字放到声明函数前面，表示该函数为一个异步任务，不会阻塞后面函数的执行</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">async function fn()&#123;</span><br><span class="line">            return &#x27;不讲武德&#x27;;</span><br><span class="line">&#125;</span><br><span class="line">        console.log(fn());</span><br></pre></td></tr></table></figure>
-
-<p>await关键字只能在使用async定义的函数中使用</p>
-<p>await后面可以直接跟一个 Promise实例对象（可以跟任何表达式，更多的是跟一个返回Promise对象的表达式）</p>
-<p>await可以直接拿到Promise中resolve中的数据。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>总结一下，当我们写代码遇到异步回调时，我们想让异步代码按照我们想要的顺序执行，如果按照传统的嵌套方式，就会出现回调地狱，这样的代码不利于维护，我们可以通过Promise对象进行链式编程来解决，这样尽管可以解决问题，但是ES7给我们提供了更加舒适的async&#x2F;await语法糖，可以使得异步代码看起来更像是同步代码。</p>
-
+            
         </div>
 
         
@@ -225,15 +205,30 @@
         
             <div class="article-nav">
                 
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/05/06/React%E9%9D%A2%E8%AF%95%E9%A2%98(%E8%BF%9B%E9%98%B6%E7%AF%87)/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">React面试题总结(进阶篇)</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/05/04/JS%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93(%E5%9F%BA%E7%A1%80%E7%AF%87)/"
+                           href="/2022/05/05/promise%E5%92%8Canyac%E5%92%8Cawait/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">JS面试题总结(基础篇)</span>
-                                <span class="post-nav-item">下一篇</span>
+                                <span class="post-nav-title-item">promise和async/await介绍</span>
+                                <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
                               <i class="fas fa-chevron-right"></i>
@@ -273,7 +268,7 @@
             </div>
         
         <div class="theme-info info-item">
-            <a target="_blank" href="https://hexo.io">Hexo</a> 框架&nbsp;|&nbsp;主題&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
         </div>
         
             <div class="icp-info info-item"><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">豫ICP证000000000001</a></div>
@@ -352,7 +347,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Promise"><span class="nav-number">1.</span> <span class="nav-text">Promise</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#async-x2F-await"><span class="nav-number">2.</span> <span class="nav-text">async&#x2F;await</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">2.0.1.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li></ol>
+        
     </div>
 </div>
         </aside>
@@ -374,7 +369,7 @@
                 <input autocomplete="off"
                        autocorrect="off"
                        autocapitalize="off"
-                       placeholder="搜尋..."
+                       placeholder="Search..."
                        spellcheck="false"
                        type="search"
                        class="search-input"
