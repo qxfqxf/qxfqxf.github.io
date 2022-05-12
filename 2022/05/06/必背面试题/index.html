@@ -178,12 +178,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>6.2k 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>8k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>22 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>28 Mins</span>
         </span>
     
     
@@ -503,7 +503,7 @@
 <li><code>WebPack</code> 是一个模块打包工具，你可以使用<code>WebPack</code>管理你的模块依赖，并编绎输出模块们所需的静态文件。它能够很好地管理、打包<code>Web</code>开发中所用到的<code>HTML</code>、<code>Javascript</code>、<code>CSS</code>以及各种静态文件（图片、字体等），让开发过程更加高效。对于不同类型的资源，<code>webpack</code>有对应的模块加载器。<code>webpack</code>模块打包器会分析模块间的依赖关系，最后 生成了优化且合并后的静态资源</li>
 </ul>
 <h1 id="webpack的打包原理"><a href="#webpack的打包原理" class="headerlink" title="webpack的打包原理"></a>webpack的打包原理</h1><p>webpack中每个模块有一个唯一的id，是从0开始递增的。整个打包后的bundle.js是一个匿名函数自执行。参数则为一个数组。数组的每一项都为个function。function的内容则为每个模块的内容，并按照require的顺序排列<br>我们看到_webpack_require是模块加载函数，接收模块id（对，webpack中每个模块都会有一个独一无二的id，其实也就是在IIFE传参数组中的索引值（0，1，2…）<br>a依赖b，所以在a中调用webpack加载模块的函数</p>
-<h1 id="如何优化webpack打包速度"><a href="#如何优化webpack打包速度" class="headerlink" title="如何优化webpack打包速度"></a>如何优化webpack打包速度</h1><p>在<code>package.json</code>中的<code>dev</code>配置的时候，配置加上<code>--hot</code>即可</p>
+<h1 id="如何-化webpack打包速度"><a href="#如何-化webpack打包速度" class="headerlink" title="如何	 化webpack打包速度"></a>如何	 化webpack打包速度</h1><p>在<code>package.json</code>中的<code>dev</code>配置的时候，配置加上<code>--hot</code>即可</p>
 <p>使用fast-sass-loader代替sass-loader</p>
 <p>提取公共代码</p>
 <h1 id="说说webpack中常见的Loader？解决了什么问题？"><a href="#说说webpack中常见的Loader？解决了什么问题？" class="headerlink" title="说说webpack中常见的Loader？解决了什么问题？"></a>说说webpack中常见的Loader？解决了什么问题？</h1><p><code>loader</code> 用于对模块的”源代码”进行转换，在 <code>import</code> 或”加载”模块时预处理文件</p>
@@ -519,17 +519,158 @@
 <h1 id="说说你对promise的了解"><a href="#说说你对promise的了解" class="headerlink" title="说说你对promise的了解"></a>说说你对promise的了解</h1><p>可以把Promise看做一个容器，主要解决了回调地狱的问题，</p>
 <p>promise构造函数接收一个函数作为参数，该函数的两个参数为resolve,reject。异步任务执行成功时调用resolve函数返回结果，执行失败调用reject</p>
 <p>Promise对象的then方法用来接收处理成功时响应的数据，catch方法用来接收处s理失败时相应的数据。</p>
-<h1 id="async函数是什么，有什么作用"><a href="#async函数是什么，有什么作用" class="headerlink" title="async函数是什么，有什么作用"></a>async函数是什么，有什么作用</h1><p>\37. 有使用过vue吗？说说你对vue的理解</p>
-<p>\38. 你对SPA单页面的理解，它的优缺点分别是什么？如何实现SPA应用呢</p>
-<p>\39. SPA首屏加载速度慢的怎么解决？</p>
-<p>\40. VUE路由的原理</p>
-<p>\41. Vue中组件和插件有什么区别？</p>
-<p>\42. Vue组件之间的通信方式都有哪些</p>
-<p>\43. 你了解vue的diff算法吗？说说看</p>
-<p>\44. 为什么需要 Virtual Dom</p>
+<h1 id="async函数是什么，有什么作用"><a href="#async函数是什么，有什么作用" class="headerlink" title="async函数是什么，有什么作用"></a>async函数是什么，有什么作用</h1><p><code>async</code>函数可以理解为内置自动执行器的<code>Generator</code>函数语法糖，它配合<code>ES6</code>的<code>Promise</code>近乎完美的实现了异步编程解决方案</p>
+<p><strong>async、await 优缺点</strong></p>
+<blockquote>
+<p><code>async</code> 和 <code>await</code> 相比直接使用 <code>Promise</code> 来说，优势在于处理 then 的调用链，能够更清晰准确的写出代码。缺点在于滥用 <code>await</code> 可能会导致性能问题，因为 <code>await</code> 会阻塞代码，也许之后的异步代码并不依赖于前者，但仍然需要等待前者完成，导致代码失去了并发性</p>
+</blockquote>
+<h1 id="有使用过vue吗？说说你对vue的理解"><a href="#有使用过vue吗？说说你对vue的理解" class="headerlink" title="有使用过vue吗？说说你对vue的理解"></a>有使用过vue吗？说说你对vue的理解</h1><p>是一个用于创建用户界面的开源JavaScript框架，也是一个创建单页应用的Web应用框架</p>
+<p><strong>Vue核心特性</strong>，数据驱动（MVVM)</p>
+<p>MVVM表示的是 Model-View-ViewModel<br>Model：模型层，负责处理业务逻辑以及和服务器端进行交互<br>View：视图层：负责将数据模型转化为UI展示出来，可以简单的理解为HTML页面<br>ViewModel：视图模型层，用来连接Model和View，是Model和View之间的通信桥梁<br>vue采用了组件化，在Vue中每一个.vue文件都可以视为一个组件，降低整个系统的耦合度，在出现问题的时候，可以用排除法直接移除组件，或者根据报错的组件快速定位问题，</p>
+<h1 id="你对SPA单页面的理解，它的优缺点分别是什么？如何实现SPA应用呢"><a href="#你对SPA单页面的理解，它的优缺点分别是什么？如何实现SPA应用呢" class="headerlink" title="你对SPA单页面的理解，它的优缺点分别是什么？如何实现SPA应用呢"></a>你对SPA单页面的理解，它的优缺点分别是什么？如何实现SPA应用呢</h1><p>翻译过来就是单页应用，它通过动态重写当前页面来与用户交互，这种方法避免了页面之间切换打断用户体验</p>
+<p>我们熟知的JS框架如<code>react</code>,<code>vue</code>,<code>angular</code>,<code>ember</code>都属于<code>SPA</code></p>
+<h2 id="SPA和MPA的区别"><a href="#SPA和MPA的区别" class="headerlink" title="SPA和MPA的区别"></a>SPA和MPA的区别</h2><p>MPA翻译过来就是多页应用，在<code>MPA</code>中每个页面都是一个主页面，都是独立的当我们在访问另一个页面的时候，都需要重新加载<code>html</code>、<code>css</code>、<code>js</code>文件</p>
+<h4 id="单页应用与多页应用的区别"><a href="#单页应用与多页应用的区别" class="headerlink" title="单页应用与多页应用的区别"></a>单页应用与多页应用的区别</h4><table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">单页面应用（SPA）</th>
+<th align="left">多页面应用（MPA）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">组成</td>
+<td align="left">一个主页面和多个页面片段</td>
+<td align="left">多个主页面</td>
+</tr>
+<tr>
+<td align="left">刷新方式</td>
+<td align="left">局部刷新</td>
+<td align="left">整页刷新</td>
+</tr>
+<tr>
+<td align="left">url模式</td>
+<td align="left">哈希模式</td>
+<td align="left">历史模式</td>
+</tr>
+<tr>
+<td align="left">SEO搜索引擎优化</td>
+<td align="left">难实现，可使用SSR方式改善</td>
+<td align="left">容易实现</td>
+</tr>
+<tr>
+<td align="left">数据传递</td>
+<td align="left">容易</td>
+<td align="left">通过url、cookie、localStorage等传递</td>
+</tr>
+<tr>
+<td align="left">页面切换</td>
+<td align="left">速度快，用户体验良好</td>
+<td align="left">切换加载资源，速度慢，用户体验差</td>
+</tr>
+<tr>
+<td align="left">维护成本</td>
+<td align="left">相对容易</td>
+<td align="left">相对复杂</td>
+</tr>
+</tbody></table>
+<h4 id="单页应用优缺点"><a href="#单页应用优缺点" class="headerlink" title="单页应用优缺点"></a>单页应用优缺点</h4><p>优点：</p>
+<ul>
+<li>具有桌面应用的即时性、网站的可移植性和可访问性</li>
+<li>用户体验好、快，内容的改变不需要重新加载整个页面</li>
+<li>良好的前后端分离，分工更明确</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>不利于搜索引擎的抓取</li>
+<li>首次渲染速度相对较慢</li>
+</ul>
+<h1 id="SPA首屏加载速度慢的怎么解决？"><a href="#SPA首屏加载速度慢的怎么解决？" class="headerlink" title="SPA首屏加载速度慢的怎么解决？ *"></a>SPA首屏加载速度慢的怎么解决？ *</h1><h2 id="加载慢的原因"><a href="#加载慢的原因" class="headerlink" title="加载慢的原因"></a>加载慢的原因</h2><ul>
+<li>网络延时问题</li>
+<li>资源文件体积是否过大</li>
+<li>资源是否重复发送请求去加载了</li>
+<li>加载脚本的时候，渲染内容堵塞了</li>
+</ul>
+<h2 id="常见的几种SPA首屏优化方式"><a href="#常见的几种SPA首屏优化方式" class="headerlink" title="常见的几种SPA首屏优化方式"></a>常见的几种SPA首屏优化方式</h2><ul>
+<li>减小入口文件积</li>
+<li>静态资源本地缓存</li>
+<li>UI框架按需加载</li>
+<li>图片资源的压缩</li>
+<li>组件重复打包</li>
+<li>开启GZip压缩</li>
+<li>使用SSR</li>
+</ul>
+<h1 id="VUE路由的原理"><a href="#VUE路由的原理" class="headerlink" title="VUE路由的原理"></a>VUE路由的原理</h1><p>通过改变 URL，在不重新请求页面的情况下，更新页面视图。</p>
+<p>更新视图但不重新请求页面，是前端路由原理的核心之一，目前在浏览器环境中这一功能的实现主要有<code>2</code>种方式：</p>
+<p>1.<strong>Hash</strong> — 利用 URL 中的hash(“#”);</p>
+<p>2.利用 <strong>History interface</strong> 在HTML5中新增的方法。</p>
+<p>Vue 中，它是通过 <strong>mode</strong> 这一参数控制路由的实现模式：</p>
+<h1 id="Vue中组件和插件有什么区别？"><a href="#Vue中组件和插件有什么区别？" class="headerlink" title="Vue中组件和插件有什么区别？"></a>Vue中组件和插件有什么区别？</h1><p>组件就是把图形、非图形的各种逻辑均抽象为一个统一的概念（组件）来实现开发的模式，在<code>Vue</code>中每一个<code>.vue</code>文件都可以视为一个组件</p>
+<p>插件通常用来为 <code>Vue</code> 添加全局功能。</p>
+<p>两者的区别主要表现在以下几个方面：</p>
+<ul>
+<li><p>编写形式</p>
+<ul>
+<li>每一个<code>.vue</code>文件我们都可以看成是一个组件</li>
+<li>我们还可以通过<code>template</code>属性来编写一个组件</li>
+<li><code>vue</code>插件的实现应该暴露一个 <code>install</code> 方法，第一个参数是 <code>Vue</code> 构造器，第二个参数是一个可选的选项对象</li>
+</ul>
+</li>
+<li><p>注册形式</p>
+<ul>
+<li>全局注册通过<code>Vue.component</code>方法，第一个参数为组件的名称，第二个参数为传入的配置项</li>
+<li>局部注册只需在用到的地方通过<code>components</code>属性注册一个组件</li>
+<li>插件的注册通过<code>Vue.use()</code>的方式进行注册（安装），第一个参数为插件的名字，第二个参数是可选择的配置项</li>
+</ul>
+</li>
+<li><p>使用场景</p>
+</li>
+<li><p>组件 <code>(Component)</code> 是用来构成你的 <code>App</code> 的业务模块，它的目标是 <code>App.vue</code></p>
+<p>插件 <code>(Plugin)</code> 是用来增强你的技术栈的功能模块，它的目标是 <code>Vue</code> 本身</p>
+<p>简单来说，插件就是指对<code>Vue</code>的功能的增强或补充</p>
+</li>
+</ul>
+<h1 id="Vue组件之间的通信方式都有哪些"><a href="#Vue组件之间的通信方式都有哪些" class="headerlink" title="Vue组件之间的通信方式都有哪些"></a>Vue组件之间的通信方式都有哪些</h1><p>组件间通信的分类可以分成以下</p>
+<ul>
+<li>父传子<ul>
+<li>通过 props 传递</li>
+<li>子组件设置<code>props</code>属性，定义接收父组件传递过来的参数</li>
+<li>父组件在使用子组件标签中通过字面量来传递值</li>
+</ul>
+</li>
+<li>子传父<ul>
+<li>$emit 触发自定义事件</li>
+<li>子组件通过<code>$emit触发</code>自定义事件，<code>$emit</code>第二个参数为传递的数值</li>
+<li>父组件绑定监听器获取到子组件传递过来的参数</li>
+</ul>
+</li>
+<li>兄弟组件之间的通信<ul>
+<li>兄弟组件传值是通过EventBus</li>
+<li>创建一个<code>EventBus</code>.js文件，里边主要是到处Vue实例</li>
+<li>发送数据组件调用bus.$emit(‘事件名’,传递的数据)</li>
+<li>接收数据组件调用bus.$on(“事件名”,回调函数)我们就可以通过回调函数的形参</li>
+</ul>
+</li>
+<li>祖孙与后代组件之间的通信</li>
+<li>非关系组件间之间的通信</li>
+</ul>
+<h1 id="虚拟DOM的理解"><a href="#虚拟DOM的理解" class="headerlink" title="虚拟DOM的理解"></a>虚拟DOM的理解</h1><p>虚拟dom本质上就是一个js对象，存储在内存中，</p>
+<h1 id="你了解vue的diff算法吗？说说看"><a href="#你了解vue的diff算法吗？说说看" class="headerlink" title="你了解vue的diff算法吗？说说看"></a>你了解vue的diff算法吗？说说看</h1><p>“diff算法就是进行虚拟节点对比,并返回一个patch对象,用来存储两个节点不同的地方,最后用patch记录的消息去局部更新Dom。”</p>
+<p>其有两个特点：</p>
+<ul>
+<li>比较只会在同层级进行, 不会跨层级比较</li>
+<li>标签名不同的话，直接删掉，</li>
+<li>在diff比较的过程中，循环从两边向中间比较</li>
+</ul>
+<p><code>diff</code> 算法在很多场景下都有应用，在 <code>vue</code> 中，作用于虚拟 <code>dom</code> 渲染成真实 <code>dom</code> 的新旧 <code>VNode</code> 节点比较</p>
+<p><code>diff</code>整体策略为：深度优先，同层比较</p>
+<h1 id="为什么需要-Virtual-Dom"><a href="#为什么需要-Virtual-Dom" class="headerlink" title="为什么需要 Virtual Dom"></a>为什么需要 Virtual Dom</h1><p>因为要直接操作真实dom的话，每次都会进行页面的刷新，</p>
+<p>虚拟<code>dom</code>相当于在<code>js</code>和真实<code>dom</code>中间加了一个缓存，利用<code>dom diff</code>算法避免了没有必要的<code>dom</code>操作，从而提高性能</p>
 <p>\45. Vue3.0的设计目标是什么？做了哪些优化</p>
 <p>\46. Vue3.0 所采用的 Composition Api 与 Vue2.x 使用的 Options Api 有什么不同？</p>
-<p>\47. 说一下Vue数据响应式的原理</p>
+<h1 id="说一下Vue数据响应式的原理"><a href="#说一下Vue数据响应式的原理" class="headerlink" title="说一下Vue数据响应式的原理"></a>说一下Vue数据响应式的原理</h1><p>数据劫持结合发布订阅模式，</p>
+<p>首次获取data中的状态，使用es5的object.defineProperty对每一个状态进行getter,setter,</p>
+<p>当获取数据时，new一个Dep()对象，该对象中有sub数组，sub数组中是通过watchar</p>
 <p>\48. 说说对 React 的理解？有哪些特性？</p>
 <p>\49. 说说 Real DOM 和 Virtual DOM 的区别？优缺点？</p>
 <p>\50. 说说 React 生命周期有哪些不同阶段？每个阶段对应的方法是？</p>
@@ -573,7 +714,7 @@
                         >
                             <span class="title flex-center">
                                 <span class="post-nav-title-item">React面试题总结(进阶篇)</span>
-                                <span class="post-nav-item">下一篇</span>
+                                <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
                               <i class="fas fa-chevron-right"></i>
@@ -613,7 +754,7 @@
             </div>
         
         <div class="theme-info info-item">
-            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
         </div>
         
             <div class="icp-info info-item"><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">豫ICP证000000000001</a></div>
@@ -692,7 +833,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">说说你对盒子模型的理解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">标准盒子模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IE-%E6%80%AA%E5%BC%82%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.2.</span> <span class="nav-text">IE 怪异盒子模型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#css%E9%80%89%E6%8B%A9%E5%99%A8%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F%E4%BC%98%E5%85%88%E7%BA%A7%EF%BC%9F%E5%93%AA%E4%BA%9B%E5%B1%9E%E6%80%A7%E5%8F%AF%E4%BB%A5%E7%BB%A7%E6%89%BF%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">css选择器有哪些？优先级？哪些属性可以继承？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">2.1.</span> <span class="nav-text">优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E5%B1%9E%E6%80%A7"><span class="nav-number">2.2.</span> <span class="nav-text">继承属性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%83%E7%B4%A0%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F%E5%A6%82%E6%9E%9C%E5%85%83%E7%B4%A0%E4%B8%8D%E5%AE%9A%E5%AE%BD%E9%AB%98%E5%91%A2%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">元素水平垂直居中的方法有哪些？如果元素不定宽高呢？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3%E5%9B%9E%E6%B5%81%E8%B7%9F%E9%87%8D%E7%BB%98%EF%BC%9F%E4%BB%80%E4%B9%88%E5%9C%BA%E6%99%AF%E4%B8%8B%E4%BC%9A%E8%A7%A6%E5%8F%91%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">怎么理解回流跟重绘？什么场景下会触发？         *</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1%EF%BC%9F%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E5%A6%82%E4%BD%95%E5%81%9A%EF%BC%9F"><span class="nav-number">5.</span> <span class="nav-text">什么是响应式设计？响应式设计的基本原理是什么？如何做？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E7%82%B9%EF%BC%9A"><span class="nav-number">5.1.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%BA%E7%82%B9%EF%BC%9A"><span class="nav-number">5.2.</span> <span class="nav-text">缺点：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E8%A6%81%E5%81%9A%E4%BC%98%E5%8C%96%EF%BC%8CCSS%E6%8F%90%E9%AB%98%E6%80%A7%E8%83%BD%E7%9A%84%E6%96%B9%E6%B3%95%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">如果要做优化，CSS提高性能的方法有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%B9%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BF%99%E4%B8%AA%E8%81%8C%E4%BD%8D%E6%98%AF%E6%80%8E%E4%B9%88%E6%A0%B7%E7%90%86%E8%A7%A3%E7%9A%84%EF%BC%9F%E5%AE%83%E7%9A%84%E5%89%8D%E6%99%AF%E4%BC%9A%E6%80%8E%E4%B9%88%E6%A0%B7"><span class="nav-number">7.</span> <span class="nav-text">对前端工程师这个职位是怎么样理解的？它的前景会怎么样?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4JavaScript%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%9F%E5%AD%98%E5%82%A8%E4%B8%8A%E7%9A%84%E5%B7%AE%E5%88%AB%EF%BC%9F"><span class="nav-number">8.</span> <span class="nav-text">说说JavaScript中的数据类型？存储上的差别？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#typeof-%E4%B8%8E-instanceof-%E5%8C%BA%E5%88%AB"><span class="nav-number">9.</span> <span class="nav-text">typeof 与 instanceof 区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9%E9%97%AD%E5%8C%85%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9F%E9%97%AD%E5%8C%85%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">10.</span> <span class="nav-text">说说你对闭包的理解？闭包使用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bind%E3%80%81call%E3%80%81apply-%E5%8C%BA%E5%88%AB%EF%BC%9F%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAbind"><span class="nav-number">11.</span> <span class="nav-text">bind、call、apply 区别？如何实现一个bind?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">12.</span> <span class="nav-text">说说你对事件循环的理解            *</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1"><span class="nav-number">12.1.</span> <span class="nav-text">宏任务与微任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AE%E4%BB%BB%E5%8A%A1"><span class="nav-number">12.1.1.</span> <span class="nav-text">微任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%8F%E4%BB%BB%E5%8A%A1"><span class="nav-number">12.1.2.</span> <span class="nav-text">宏任务</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM%E5%B8%B8%E8%A7%81%E7%9A%84%E6%93%8D%E4%BD%9C%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="nav-number">13.</span> <span class="nav-text">DOM常见的操作有哪些				*</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9BOM%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%8C%E5%B8%B8%E8%A7%81%E7%9A%84BOM%E5%AF%B9%E8%B1%A1%E4%BD%A0%E4%BA%86%E8%A7%A3%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="nav-number">14.</span> <span class="nav-text">说说你对BOM的理解，常见的BOM对象你了解哪些？ *</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Javascript%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%E7%9A%84%E6%96%B9%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F%E5%8C%BA%E5%88%AB%E5%8F%8A%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%9F"><span class="nav-number">15.</span> <span class="nav-text">Javascript本地存储的方式有哪些？区别及应用场景？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie"><span class="nav-number">15.0.1.</span> <span class="nav-text">cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#localStorage"><span class="nav-number">15.0.2.</span> <span class="nav-text">localStorage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sessionStorage"><span class="nav-number">15.0.3.</span> <span class="nav-text">sessionStorage</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-number">15.1.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">15.2.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81%EF%BC%9F%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%EF%BC%9F"><span class="nav-number">16.</span> <span class="nav-text">什么是防抖和节流？有什么区别？如何实现？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB-1"><span class="nav-number">16.1.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF-1"><span class="nav-number">16.2.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87JS%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E6%95%B0%E7%BB%84"><span class="nav-number">17.</span> <span class="nav-text">如何通过JS判断一个数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">18.</span> <span class="nav-text">说说你对作用域链的理解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript%E5%8E%9F%E5%9E%8B%EF%BC%8C%E5%8E%9F%E5%9E%8B%E9%93%BE-%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9%EF%BC%9F"><span class="nav-number">19.</span> <span class="nav-text">JavaScript原型，原型链 ? 有什么特点？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B7%E8%A7%A3%E9%87%8A%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%8B%E4%BB%B6%E4%BB%A3%E7%90%86"><span class="nav-number">20.</span> <span class="nav-text">请解释什么是事件代理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B0%88%E8%B0%88This%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">21.</span> <span class="nav-text">谈谈This对象的理解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#new%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%85%B7%E4%BD%93%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88"><span class="nav-number">22.</span> <span class="nav-text">new操作符具体干了什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null%EF%BC%8Cundefined-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">23.</span> <span class="nav-text">null，undefined 的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#javascript-%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%9A%84%E2%80%9Duse-strict%E2%80%9D-%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D"><span class="nav-number">24.</span> <span class="nav-text">javascript 代码中的”use strict”;是什么意思</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">25.</span> <span class="nav-text">同步和异步的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B0%88%E4%B8%80%E8%B0%88%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E4%B8%8E%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">26.</span> <span class="nav-text">谈一谈箭头函数与普通函数的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JS%E4%B8%AD%E7%9A%84%E6%95%B0%E7%BB%84%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">27.</span> <span class="nav-text">JS中的数组的方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JS-%E6%95%B0%E7%BB%84%E5%92%8C%E5%AF%B9%E8%B1%A1%E7%9A%84%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-number">28.</span> <span class="nav-text">JS 数组和对象的遍历方式，以及几种方式的比较</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98"><span class="nav-number">29.</span> <span class="nav-text">如何解决跨域问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#XML%E5%92%8CJSON%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">30.</span> <span class="nav-text">XML和JSON的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9webpack%E7%9A%84%E7%9C%8B%E6%B3%95"><span class="nav-number">31.</span> <span class="nav-text">谈谈你对webpack的看法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack%E7%9A%84%E6%89%93%E5%8C%85%E5%8E%9F%E7%90%86"><span class="nav-number">32.</span> <span class="nav-text">webpack的打包原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96webpack%E6%89%93%E5%8C%85%E9%80%9F%E5%BA%A6"><span class="nav-number">33.</span> <span class="nav-text">如何优化webpack打包速度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4webpack%E4%B8%AD%E5%B8%B8%E8%A7%81%E7%9A%84Loader%EF%BC%9F%E8%A7%A3%E5%86%B3%E4%BA%86%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="nav-number">34.</span> <span class="nav-text">说说webpack中常见的Loader？解决了什么问题？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4webpack%E4%B8%AD%E5%B8%B8%E8%A7%81%E7%9A%84Plugin%EF%BC%9F%E8%A7%A3%E5%86%B3%E4%BA%86%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="nav-number">35.</span> <span class="nav-text">说说webpack中常见的Plugin？解决了什么问题？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9promise%E7%9A%84%E4%BA%86%E8%A7%A3"><span class="nav-number">36.</span> <span class="nav-text">说说你对promise的了解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#async%E5%87%BD%E6%95%B0%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8C%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8"><span class="nav-number">37.</span> <span class="nav-text">async函数是什么，有什么作用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">38.</span> <span class="nav-text"></span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">说说你对盒子模型的理解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">标准盒子模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IE-%E6%80%AA%E5%BC%82%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.2.</span> <span class="nav-text">IE 怪异盒子模型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#css%E9%80%89%E6%8B%A9%E5%99%A8%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F%E4%BC%98%E5%85%88%E7%BA%A7%EF%BC%9F%E5%93%AA%E4%BA%9B%E5%B1%9E%E6%80%A7%E5%8F%AF%E4%BB%A5%E7%BB%A7%E6%89%BF%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">css选择器有哪些？优先级？哪些属性可以继承？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">2.1.</span> <span class="nav-text">优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E5%B1%9E%E6%80%A7"><span class="nav-number">2.2.</span> <span class="nav-text">继承属性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%83%E7%B4%A0%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F%E5%A6%82%E6%9E%9C%E5%85%83%E7%B4%A0%E4%B8%8D%E5%AE%9A%E5%AE%BD%E9%AB%98%E5%91%A2%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">元素水平垂直居中的方法有哪些？如果元素不定宽高呢？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3%E5%9B%9E%E6%B5%81%E8%B7%9F%E9%87%8D%E7%BB%98%EF%BC%9F%E4%BB%80%E4%B9%88%E5%9C%BA%E6%99%AF%E4%B8%8B%E4%BC%9A%E8%A7%A6%E5%8F%91%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">怎么理解回流跟重绘？什么场景下会触发？         *</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1%EF%BC%9F%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E5%A6%82%E4%BD%95%E5%81%9A%EF%BC%9F"><span class="nav-number">5.</span> <span class="nav-text">什么是响应式设计？响应式设计的基本原理是什么？如何做？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E7%82%B9%EF%BC%9A"><span class="nav-number">5.1.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%BA%E7%82%B9%EF%BC%9A"><span class="nav-number">5.2.</span> <span class="nav-text">缺点：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E8%A6%81%E5%81%9A%E4%BC%98%E5%8C%96%EF%BC%8CCSS%E6%8F%90%E9%AB%98%E6%80%A7%E8%83%BD%E7%9A%84%E6%96%B9%E6%B3%95%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">如果要做优化，CSS提高性能的方法有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%B9%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BF%99%E4%B8%AA%E8%81%8C%E4%BD%8D%E6%98%AF%E6%80%8E%E4%B9%88%E6%A0%B7%E7%90%86%E8%A7%A3%E7%9A%84%EF%BC%9F%E5%AE%83%E7%9A%84%E5%89%8D%E6%99%AF%E4%BC%9A%E6%80%8E%E4%B9%88%E6%A0%B7"><span class="nav-number">7.</span> <span class="nav-text">对前端工程师这个职位是怎么样理解的？它的前景会怎么样?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4JavaScript%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%9F%E5%AD%98%E5%82%A8%E4%B8%8A%E7%9A%84%E5%B7%AE%E5%88%AB%EF%BC%9F"><span class="nav-number">8.</span> <span class="nav-text">说说JavaScript中的数据类型？存储上的差别？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#typeof-%E4%B8%8E-instanceof-%E5%8C%BA%E5%88%AB"><span class="nav-number">9.</span> <span class="nav-text">typeof 与 instanceof 区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9%E9%97%AD%E5%8C%85%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9F%E9%97%AD%E5%8C%85%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">10.</span> <span class="nav-text">说说你对闭包的理解？闭包使用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bind%E3%80%81call%E3%80%81apply-%E5%8C%BA%E5%88%AB%EF%BC%9F%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAbind"><span class="nav-number">11.</span> <span class="nav-text">bind、call、apply 区别？如何实现一个bind?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">12.</span> <span class="nav-text">说说你对事件循环的理解            *</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1"><span class="nav-number">12.1.</span> <span class="nav-text">宏任务与微任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AE%E4%BB%BB%E5%8A%A1"><span class="nav-number">12.1.1.</span> <span class="nav-text">微任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%8F%E4%BB%BB%E5%8A%A1"><span class="nav-number">12.1.2.</span> <span class="nav-text">宏任务</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM%E5%B8%B8%E8%A7%81%E7%9A%84%E6%93%8D%E4%BD%9C%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="nav-number">13.</span> <span class="nav-text">DOM常见的操作有哪些				*</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9BOM%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%8C%E5%B8%B8%E8%A7%81%E7%9A%84BOM%E5%AF%B9%E8%B1%A1%E4%BD%A0%E4%BA%86%E8%A7%A3%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="nav-number">14.</span> <span class="nav-text">说说你对BOM的理解，常见的BOM对象你了解哪些？ *</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Javascript%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%E7%9A%84%E6%96%B9%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F%E5%8C%BA%E5%88%AB%E5%8F%8A%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%9F"><span class="nav-number">15.</span> <span class="nav-text">Javascript本地存储的方式有哪些？区别及应用场景？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie"><span class="nav-number">15.0.1.</span> <span class="nav-text">cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#localStorage"><span class="nav-number">15.0.2.</span> <span class="nav-text">localStorage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sessionStorage"><span class="nav-number">15.0.3.</span> <span class="nav-text">sessionStorage</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-number">15.1.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">15.2.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81%EF%BC%9F%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%EF%BC%9F"><span class="nav-number">16.</span> <span class="nav-text">什么是防抖和节流？有什么区别？如何实现？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB-1"><span class="nav-number">16.1.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF-1"><span class="nav-number">16.2.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87JS%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E6%95%B0%E7%BB%84"><span class="nav-number">17.</span> <span class="nav-text">如何通过JS判断一个数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">18.</span> <span class="nav-text">说说你对作用域链的理解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript%E5%8E%9F%E5%9E%8B%EF%BC%8C%E5%8E%9F%E5%9E%8B%E9%93%BE-%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9%EF%BC%9F"><span class="nav-number">19.</span> <span class="nav-text">JavaScript原型，原型链 ? 有什么特点？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B7%E8%A7%A3%E9%87%8A%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%8B%E4%BB%B6%E4%BB%A3%E7%90%86"><span class="nav-number">20.</span> <span class="nav-text">请解释什么是事件代理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B0%88%E8%B0%88This%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">21.</span> <span class="nav-text">谈谈This对象的理解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#new%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%85%B7%E4%BD%93%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88"><span class="nav-number">22.</span> <span class="nav-text">new操作符具体干了什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null%EF%BC%8Cundefined-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">23.</span> <span class="nav-text">null，undefined 的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#javascript-%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%9A%84%E2%80%9Duse-strict%E2%80%9D-%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D"><span class="nav-number">24.</span> <span class="nav-text">javascript 代码中的”use strict”;是什么意思</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">25.</span> <span class="nav-text">同步和异步的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B0%88%E4%B8%80%E8%B0%88%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E4%B8%8E%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">26.</span> <span class="nav-text">谈一谈箭头函数与普通函数的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JS%E4%B8%AD%E7%9A%84%E6%95%B0%E7%BB%84%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">27.</span> <span class="nav-text">JS中的数组的方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JS-%E6%95%B0%E7%BB%84%E5%92%8C%E5%AF%B9%E8%B1%A1%E7%9A%84%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-number">28.</span> <span class="nav-text">JS 数组和对象的遍历方式，以及几种方式的比较</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98"><span class="nav-number">29.</span> <span class="nav-text">如何解决跨域问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#XML%E5%92%8CJSON%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">30.</span> <span class="nav-text">XML和JSON的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9webpack%E7%9A%84%E7%9C%8B%E6%B3%95"><span class="nav-number">31.</span> <span class="nav-text">谈谈你对webpack的看法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack%E7%9A%84%E6%89%93%E5%8C%85%E5%8E%9F%E7%90%86"><span class="nav-number">32.</span> <span class="nav-text">webpack的打包原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95-%E5%8C%96webpack%E6%89%93%E5%8C%85%E9%80%9F%E5%BA%A6"><span class="nav-number">33.</span> <span class="nav-text">如何	 化webpack打包速度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4webpack%E4%B8%AD%E5%B8%B8%E8%A7%81%E7%9A%84Loader%EF%BC%9F%E8%A7%A3%E5%86%B3%E4%BA%86%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="nav-number">34.</span> <span class="nav-text">说说webpack中常见的Loader？解决了什么问题？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4webpack%E4%B8%AD%E5%B8%B8%E8%A7%81%E7%9A%84Plugin%EF%BC%9F%E8%A7%A3%E5%86%B3%E4%BA%86%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="nav-number">35.</span> <span class="nav-text">说说webpack中常见的Plugin？解决了什么问题？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9promise%E7%9A%84%E4%BA%86%E8%A7%A3"><span class="nav-number">36.</span> <span class="nav-text">说说你对promise的了解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#async%E5%87%BD%E6%95%B0%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8C%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8"><span class="nav-number">37.</span> <span class="nav-text">async函数是什么，有什么作用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BD%BF%E7%94%A8%E8%BF%87vue%E5%90%97%EF%BC%9F%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9vue%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">38.</span> <span class="nav-text">有使用过vue吗？说说你对vue的理解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%A0%E5%AF%B9SPA%E5%8D%95%E9%A1%B5%E9%9D%A2%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%8C%E5%AE%83%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0SPA%E5%BA%94%E7%94%A8%E5%91%A2"><span class="nav-number">39.</span> <span class="nav-text">你对SPA单页面的理解，它的优缺点分别是什么？如何实现SPA应用呢</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SPA%E5%92%8CMPA%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">39.1.</span> <span class="nav-text">SPA和MPA的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E9%A1%B5%E5%BA%94%E7%94%A8%E4%B8%8E%E5%A4%9A%E9%A1%B5%E5%BA%94%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">39.1.0.1.</span> <span class="nav-text">单页应用与多页应用的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E9%A1%B5%E5%BA%94%E7%94%A8%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">39.1.0.2.</span> <span class="nav-text">单页应用优缺点</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SPA%E9%A6%96%E5%B1%8F%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%85%A2%E7%9A%84%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%EF%BC%9F"><span class="nav-number">40.</span> <span class="nav-text">SPA首屏加载速度慢的怎么解决？ *</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E8%BD%BD%E6%85%A2%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-number">40.1.</span> <span class="nav-text">加载慢的原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E5%87%A0%E7%A7%8DSPA%E9%A6%96%E5%B1%8F%E4%BC%98%E5%8C%96%E6%96%B9%E5%BC%8F"><span class="nav-number">40.2.</span> <span class="nav-text">常见的几种SPA首屏优化方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VUE%E8%B7%AF%E7%94%B1%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">41.</span> <span class="nav-text">VUE路由的原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue%E4%B8%AD%E7%BB%84%E4%BB%B6%E5%92%8C%E6%8F%92%E4%BB%B6%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">42.</span> <span class="nav-text">Vue中组件和插件有什么区别？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="nav-number">43.</span> <span class="nav-text">Vue组件之间的通信方式都有哪些</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%99%9A%E6%8B%9FDOM%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">44.</span> <span class="nav-text">虚拟DOM的理解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%A0%E4%BA%86%E8%A7%A3vue%E7%9A%84diff%E7%AE%97%E6%B3%95%E5%90%97%EF%BC%9F%E8%AF%B4%E8%AF%B4%E7%9C%8B"><span class="nav-number">45.</span> <span class="nav-text">你了解vue的diff算法吗？说说看</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81-Virtual-Dom"><span class="nav-number">46.</span> <span class="nav-text">为什么需要 Virtual Dom</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E4%B8%80%E4%B8%8BVue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">47.</span> <span class="nav-text">说一下Vue数据响应式的原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">48.</span> <span class="nav-text"></span></a></li></ol>
     </div>
 </div>
         </aside>
@@ -714,7 +855,7 @@
                 <input autocomplete="off"
                        autocorrect="off"
                        autocapitalize="off"
-                       placeholder="搜索..."
+                       placeholder="Search..."
                        spellcheck="false"
                        type="search"
                        class="search-input"
