@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Continue Study">
+    
+    <title>
+        
+            Vue面试题总结 |
+        
+        Continue Study
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/1.jpg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-Hans","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/1.jpg","favicon":"/images/1.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"黄色的森林分出两条路，我选择了人迹更少的那一条，从此决定我一生的道路。"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Continue Study
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                目录
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">目录</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Vue面试题总结</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/1.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Continue Study</span>
+                        
+                            <span class="author-label">Lv2</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2018-04-12 09:21:11</span>
+        <span class="mobile">2018-04-12 09:21</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/">面试题总结</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.4k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>5 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>面试题 链接：</p>
+<p>前端面试指南 </p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://interview2.poetries.top/docs/base.html" >https://interview2.poetries.top/docs/base.html<i class="fas fa-external-link-alt"></i></a></p>
+<p>邮箱：<a class="link"   href="mailto:&#x31;&#x38;&#48;&#x31;&#48;&#x30;&#55;&#55;&#48;&#50;&#x36;&#x40;&#49;&#x36;&#51;&#46;&#99;&#x6f;&#x6d;" >&#x31;&#x38;&#48;&#x31;&#48;&#x30;&#55;&#55;&#48;&#50;&#x36;&#x40;&#49;&#x36;&#51;&#46;&#99;&#x6f;&#x6d;<i class="fas fa-external-link-alt"></i></a></p>
+<p>web前端面试-面试官系列：</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://vue3js.cn/interview/vue/vue.html" >https://vue3js.cn/interview/vue/vue.html<i class="fas fa-external-link-alt"></i></a></p>
+<h1 id="Vue是什么"><a href="#Vue是什么" class="headerlink" title="Vue是什么"></a>Vue是什么</h1><p>Vue是一套用于构建用户界面的渐进式框架，所谓渐进式就是Vue只做自己改做的事情，不做职责以外的事，Vue的核心库只关注视图层，</p>
+<p>非常容易与其它库或已有项目整合</p>
+<h1 id="Vue响应式原理"><a href="#Vue响应式原理" class="headerlink" title="Vue响应式原理"></a>Vue响应式原理</h1><blockquote>
+<p>Vue 的响应式原理是核心是通过  <code>Object.defindeProperty</code> 中的访问器属性中的 get 和 set 方法，data 中声明的属性都被添加了访问器属性，当读取 data 中的数据时自动调用 get 方法，当修改 data 中的数据时，自动调用 set 方法，检测到数据的变化，会通知观察者 Wacher，观察者 Wacher自动触发重新render 当前组件（子组件不会重新渲染）,生成新的虚拟 DOM 树，Vue 框架会遍历并对比新虚拟 DOM 树和旧虚拟 DOM 树中每个节点的差别，并记录下来，最后，加载操作，将所有记录的不同点，局部修改到真实 DOM树上。</p>
+</blockquote>
+<h1 id="发布订阅模式和观察者模式"><a href="#发布订阅模式和观察者模式" class="headerlink" title="发布订阅模式和观察者模式"></a>发布订阅模式和观察者模式</h1><ul>
+<li><strong>观察者模式</strong>是由具体目标调度，比如当事件触发，<code>Dep</code> 就会去调用观察者的方法，所以观察者模 式的订阅者与发布者之间是存在依赖的</li>
+<li><strong>发布&#x2F;订阅模式</strong>由统一调度中心调用，因此发布者和订阅者不需要知道对方的存在</li>
+</ul>
+<h1 id="为什么使用-Virtual-DOM"><a href="#为什么使用-Virtual-DOM" class="headerlink" title="为什么使用 Virtual DOM"></a>为什么使用 Virtual DOM</h1><p>Virtual DOM（虚拟DOM），是由普通的 JS 对象来描述DOM对象，因为不是真实的DOM对象，所以叫 Virtual DOM。</p>
+<ul>
+<li>手动操作 DOM 比较麻烦，还需要考虑浏览器兼容性问题。</li>
+<li>虽然有 jQuery 等库简化 DOM 操作并解决了兼容性问题。但是随着项目的复杂，DOM操作复杂提升，既要考虑操作数据，又要考虑操作 DOM。</li>
+<li>Virtual DOM 的好处是，当状态改变时不需要立即更新 DOM，只需要创建一个虚拟 DOM 树来描述 DOM，Virtual DOM 内部将弄清楚如何有效（diff）的更新 DOM。内部使用 diff 算法，找到状态的差异，只更新变化的部分。</li>
+<li><strong>补充1��VDOM 的必要性？</strong><ul>
+<li><strong>创建真实DOM的代价高</strong>：真实的 <code>DOM</code> 节点 <code>node</code> 实现的属性很多，而 <code>vnode</code> 仅仅实现一些必要的属性，相比起来，创建一个 <code>vnode</code> 的成本比较低。</li>
+<li><strong>触发多次浏览器重绘及回流</strong>：使用 <code>vnode</code> ，相当于加了一个缓冲，让一次数据变动所带来的所有 <code>node</code> 变化，先在 <code>vnode</code> 中进行修改，然后 <code>diff</code> 之后对所有产生差异的节点集中一次对 <code>DOM tree</code> 进行修改，以减少浏览器的重绘及回流。</li>
+</ul>
+</li>
+</ul>
+<h1 id="VDOM：三个-part"><a href="#VDOM：三个-part" class="headerlink" title="VDOM：三个 part"></a>VDOM：三个 part</h1><ul>
+<li>虚拟节点类，将真实 <code>DOM</code>节点用 <code>js</code> 对象的形式进行展示，并提供 <code>render</code> 方法，将虚拟节点渲染成真实 <code>DOM</code></li>
+<li>节点 <code>diff</code> 比较：对虚拟节点进行 <code>js</code> 层面的计算，并将不同的操作都记录到 <code>patch</code> 对象</li>
+<li><code>re-render</code>：解析 <code>patch</code> 对象，进行 <code>re-render</code></li>
+</ul>
+<h1 id="vue-和-react技术选型"><a href="#vue-和-react技术选型" class="headerlink" title="vue 和 react技术选型"></a>vue 和 react技术选型</h1><p><strong>相同点：</strong></p>
+<ol>
+<li>数据驱动页面，提供响应式的试图组件</li>
+<li>都有virtual DOM,组件化的开发，通过props参数进行父子之间组件传递数据，都实现了webComponents规范</li>
+<li>数据流动单向，都支持服务器的渲染SSR</li>
+<li>都有支持native的方法，react有React native， vue有wexx</li>
+</ol>
+<p><strong>不同点：</strong></p>
+<ol>
+<li>数据绑定：Vue实现了双向的数据绑定，react数据流动是单向的</li>
+<li>数据渲染：大规模的数据渲染，react更快</li>
+<li>使用场景：React配合Redux架构适合大规模多人协作复杂项目，Vue适合小快的项目</li>
+<li>开发风格：react推荐做法jsx + inline style把html和css都写在js了</li>
+</ol>
+<h1 id="nextTick"><a href="#nextTick" class="headerlink" title="nextTick"></a>nextTick</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nextTick` 可以让我们在下次 `DOM` 更新循环结束之后执行延迟回调，用于获得更新后的 `DOM</span><br></pre></td></tr></table></figure>
+
+<p><code>nextTick</code>主要使用了宏任务和微任务。根据执行环境分别尝试采用</p>
+<ul>
+<li><code>Promise</code></li>
+<li><code>MutationObserver</code></li>
+<li><code>setImmediate</code></li>
+<li>如果以上都不行则采用<code>setTimeout</code></li>
+</ul>
+<h1 id="Vue生命周期"><a href="#Vue生命周期" class="headerlink" title="Vue生命周期"></a>Vue生命周期</h1><p>首先，我们先来了解一下‘’生命周期‘’这个词</p>
+<p>通俗来讲，生命周期就是一个事务从出生到消失的过程</p>
+<p>在vue中，vue的生命周期是指：从创建vue对象到销毁vue对象的过程，</p>
+<p>钩子函数是Vue框架中内置的一些函数，随着生命周期	阶段，自动执行，</p>
+<p>beforeCreate	created	beforeMount	mounted	beforeUpdate	updated	beforeDestroy	destroyed	errorCaptured</p>
+<h1 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h1><p>Vue Router 是 <a class="link"   target="_blank" rel="noopener" href="http://v3.vuejs.org/" >Vue.js<i class="fas fa-external-link-alt"></i></a> 的官方路由，让用 Vue.js 构建单页应用变得轻而易举。</p>
+<p><strong>mode</strong>:hash   history</p>
+<p>跳转：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">this.$router.push()		</span><br><span class="line">&lt;router-link to = &#x27; &#x27;&gt;&lt;/router-link&gt;</span><br></pre></td></tr></table></figure>
+
+<p>占位：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-view&gt;&lt;/router-view&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h1><p>Vuex 集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以可预测的方式发生变化</p>
+<p><strong>核心概念</strong></p>
+<ul>
+<li><code>state</code>: 状态中心</li>
+<li><code>mutations</code>: 更改状态</li>
+<li><code>actions</code>: 异步更改状态</li>
+<li><code>getters</code>: 获取状态</li>
+<li><code>modules</code>: 将<code>state</code>分成多个<code>modules</code>，便于管理</li>
+</ul>
+<h1 id="vue3带来的新特性-x2F-亮点"><a href="#vue3带来的新特性-x2F-亮点" class="headerlink" title="vue3带来的新特性&#x2F;亮点"></a>vue3带来的新特性&#x2F;亮点</h1><p><strong>1. 压缩包体积更小</strong></p>
+<p>​	当前最小化并被压缩的 Vue 运行时大小约为 20kB（2.6.10 版为 22.8kB）。Vue 3.0捆绑包的大小大约会减少一半，即只有10kB！</p>
+<p><strong>2. Object.defineProperty -&gt; Proxy</strong></p>
+<p><strong>3. Virtual DOM 重构</strong></p>
+<p>细致内容：<a class="link"   target="_blank" rel="noopener" href="https://interview2.poetries.top/docs/simply.html#_11-compositon-api" >https://interview2.poetries.top/docs/simply.html#_11-compositon-api<i class="fas fa-external-link-alt"></i></a></p>
+
+        </div>
+
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2018/04/21/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">杂七杂八</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2017/05/17/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E9%97%AE%E9%A2%98/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">搭建博客流程/问题</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Continue Study</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+            <div class="icp-info info-item"><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">豫ICP证000000000001</a></div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.</span> <span class="nav-text">Vue是什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">Vue响应式原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F%E5%92%8C%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">发布订阅模式和观察者模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8-Virtual-DOM"><span class="nav-number">4.</span> <span class="nav-text">为什么使用 Virtual DOM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VDOM%EF%BC%9A%E4%B8%89%E4%B8%AA-part"><span class="nav-number">5.</span> <span class="nav-text">VDOM：三个 part</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vue-%E5%92%8C-react%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B"><span class="nav-number">6.</span> <span class="nav-text">vue 和 react技术选型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nextTick"><span class="nav-number">7.</span> <span class="nav-text">nextTick</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">8.</span> <span class="nav-text">Vue生命周期</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vue-router"><span class="nav-number">9.</span> <span class="nav-text">vue-router</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vuex"><span class="nav-number">10.</span> <span class="nav-text">vuex</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vue3%E5%B8%A6%E6%9D%A5%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7-x2F-%E4%BA%AE%E7%82%B9"><span class="nav-number">11.</span> <span class="nav-text">vue3带来的新特性&#x2F;亮点</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>
