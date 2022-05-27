@@ -9,7 +9,7 @@
     
     <title>
         
-            搭建博客流程/问题 |
+            Vue3 面试题 |
         
         Continue Study
     </title>
@@ -139,7 +139,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">搭建博客流程/问题</span>
+            <span class="title-hover-animation">Vue3 面试题</span>
         </div>
 
         
@@ -158,21 +158,32 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2017-05-17 15:10:22</span>
-        <span class="mobile">2017-05-17 15:10</span>
+        <span class="pc">2022-05-26 22:36:12</span>
+        <span class="mobile">2022-05-26 22:36</span>
     </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Vue3/">Vue3</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
     
     
 
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>291 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>1k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>3 分钟</span>
         </span>
     
     
@@ -188,27 +199,62 @@
         
 
         <div class="article-content markdown-body">
-            <h2 id="Welcome-to-第一篇文章，我在这里记录我创建博客时的问题"><a href="#Welcome-to-第一篇文章，我在这里记录我创建博客时的问题" class="headerlink" title="Welcome to 第一篇文章，我在这里记录我创建博客时的问题"></a>Welcome to 第一篇文章，我在这里记录我创建博客时的问题</h2><h1 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h1><p>dir	查询文件目录<br>hexo serve 启动<br>hexo n “我的第一篇文章”<br><code>hexo clean</code>清除了你之前生成的东西，也可以不加。<br><code>hexo generate</code> 顾名思义，生成静态文章，可以用 <code>hexo g</code>缩写<br><code>hexo deploy</code> 部署文章，可以用<code>hexo d</code>缩写</p>
-<p>添加标签： 在需要添加标签的文章里在data后加</p>
-<p>categories：  </p>
-<p>​	- Python</p>
-<p>部署到github  需要下载hexo-deployer-git<br>需要到_config.yml下的Deployment去配置type&#x3D;”git”和git地址<br>然后就可以进行部署  hexo d </p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>–都为两个—-</p>
-<p>1， 配置你的<a class="link"   target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=github&spm=1001.2101.3001.7020" >github<i class="fas fa-external-link-alt"></i></a>用户名和和邮箱，</p>
-<p>​		git config –global user.email “<a class="link"   href="mailto:&#100;&#97;&#109;&#105;&#x6e;&#x67;&#x31;&#x37;&#64;&#49;&#x36;&#x33;&#46;&#99;&#x6f;&#x6d;" >&#100;&#97;&#109;&#105;&#x6e;&#x67;&#x31;&#x37;&#64;&#49;&#x36;&#x33;&#46;&#99;&#x6f;&#x6d;<i class="fas fa-external-link-alt"></i></a>“ </p>
-<p>​		git config –global user.name “daming-Z”</p>
-<p>2，取消git本身的https代理，使用自己本机的代理，</p>
-<p>​		取消http代理* 	  git config –global –unset http.proxy </p>
-<p>​		取消https代理*  	git config –global –unset https.proxy</p>
-<p>3，生成github令牌流程</p>
-<p>​		<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/yjw123456/article/details/119696726" >https://blog.csdn.net/yjw123456/article/details/119696726<i class="fas fa-external-link-alt"></i></a></p>
-<p>4，keep主题的配置</p>
-<p>​		<a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/368244108" >https://zhuanlan.zhihu.com/p/368244108<i class="fas fa-external-link-alt"></i></a></p>
-<p>参考 bilibiliup </p>
-<p><a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty?spm_id_from=333.337.search-card.all.click" >https://www.bilibili.com/video/BV1Yb411a7ty?spm_id_from=333.337.search-card.all.click<i class="fas fa-external-link-alt"></i></a></p>
-<p>设置主题</p>
-<p><a class="link"   target="_blank" rel="noopener" href="https://hexo.io/themes/" >https://hexo.io/themes/<i class="fas fa-external-link-alt"></i></a></p>
-
+            <h1 id="Vue3的设计目标是什么？做了哪些优化？"><a href="#Vue3的设计目标是什么？做了哪些优化？" class="headerlink" title="Vue3的设计目标是什么？做了哪些优化？"></a>Vue3的设计目标是什么？做了哪些优化？</h1><p>更小</p>
+<p>Vue3移除了一些不常用的API</p>
+<p>引入tree-shaking， 可以将无用模块”剪辑”，仅打包需要的，使打包体积变小了</p>
+<p>更快</p>
+<p>主要体现在编译方面：    </p>
+<ul>
+<li>diff算法优化  添加了一个静态标记，，其作用是为会发生变化的地方添加一个<code>flag</code>标记，下次发生变化的时候直接找该地方进行比较</li>
+<li>静态提升        vue3对不参与更新的元素，会做静态提升，只会被创建一次，在渲染时直接复用，这样就免去了重复的创建节点，优化了运行时候的内存占用</li>
+<li>事件监听缓存           默认情况下绑定事件行为会被视为动态绑定，所以每次都会去追踪它的变化</li>
+<li>SSR优化      （当静态内容达到一定量级的时候）</li>
+</ul>
+<p>更友好</p>
+<p><code>vue3</code>在兼顾<code>vue2</code>的<code>options API</code>的同时还推出了<code>composition API</code>，大大增加了代码的逻辑组织和代码复用能力</p>
+<h2 id="优化方案"><a href="#优化方案" class="headerlink" title="优化方案"></a>优化方案</h2><p><code>vue3</code>从很多层面都做了优化，可以分成三个方面：</p>
+<ul>
+<li>源码 —- TypeScript<code>Vue3</code>是基于<code>typeScript</code>编写的，提供了更好的类型检查，能支持复杂的类型推导</li>
+<li>性能<ul>
+<li>体积优化</li>
+<li>编译优化</li>
+<li>数据劫持优化          Object.defineProperty</li>
+</ul>
+</li>
+<li>语法 API         composition API      优化逻辑组织   优化逻辑复用</li>
+</ul>
+<h1 id="Vue3-0性能提升主要是通过哪几方面体现的？"><a href="#Vue3-0性能提升主要是通过哪几方面体现的？" class="headerlink" title="Vue3.0性能提升主要是通过哪几方面体现的？"></a>Vue3.0性能提升主要是通过哪几方面体现的？</h1><p>编译阶段   使用了diff算法优化（<code>diff</code>算法中相比<code>vue2</code>增加了静态标记，关于这个静态标记，其作用是为了会发生变化的地方添加一个<code>flag</code>标记，下次发生变化的时候直接找该地方进行比较），静态提升（<code>Vue3</code>中对不参与更新的元素，会做静态提升，只会被创建一次，在渲染时直接复用），SSR优化  （当静态内容大到一定量级时候）</p>
+<p>源码体积    相比<code>Vue2</code>，<code>Vue3</code>整体体积变小了，除了移出一些不常用的API， 仅仅在用到的时候才打包，</p>
+<p>响应式系统    <code>vue3</code>采用<code>proxy</code>重写了响应式系统，因为<code>proxy</code>可以对整个对象进行监听，所以不需要深度遍历</p>
+<h1 id="Vue3-0里为什么要用-Proxy-API-替代-defineProperty-API-？"><a href="#Vue3-0里为什么要用-Proxy-API-替代-defineProperty-API-？" class="headerlink" title="Vue3.0里为什么要用 Proxy API 替代 defineProperty API ？"></a>Vue3.0里为什么要用 Proxy API 替代 defineProperty API ？</h1><p><code>Object.defineProperty</code>只能遍历对象属性进行劫持</p>
+<p><code>Vue2</code>在实现响应式过程需要实现其他的方法辅助（如重写数组方法、增加额外<code>set</code>、<code>delete</code>方法）</p>
+<p><code>Proxy</code>直接可以劫持整个对象，并返回一个新对象，我们可以只操作新的对象达到响应式目的</p>
+<p><code>Proxy</code>可以直接监听数组的变化（<code>push</code>、<code>shift</code>、<code>splice</code>）</p>
+<h1 id="面试官：Vue3-0-所采用的-Composition-Api-与-Vue2-x-使用的-Options-Api-有什么不同？组合式API和选项式API"><a href="#面试官：Vue3-0-所采用的-Composition-Api-与-Vue2-x-使用的-Options-Api-有什么不同？组合式API和选项式API" class="headerlink" title="面试官：Vue3.0 所采用的 Composition Api 与 Vue2.x 使用的 Options Api 有什么不同？组合式API和选项式API"></a>面试官：Vue3.0 所采用的 Composition Api 与 Vue2.x 使用的 Options Api 有什么不同？组合式API和选项式API</h1><p>下面对<code>Composition Api</code>与<code>Options Api</code>进行两大方面的比较</p>
+<ul>
+<li>逻辑组织</li>
+<li>逻辑复用<ul>
+<li>在逻辑组织和逻辑复用方面，<code>Composition API</code>是优于<code>Options API</code>因为<code>Composition API</code>几乎是函数，会有更好的类型推断。</li>
+<li><code>Composition API</code>对 <code>tree-shaking</code> 友好，代码也更容易压缩</li>
+<li><code>Composition API</code>中见不到<code>this</code>的使用，减少了<code>this</code>指向不明的情况</li>
+<li>如果是小型组件，可以继续使用<code>Options API</code>，也是十分友好的</li>
+</ul>
+</li>
+</ul>
+<h1 id="说说Vue-3-0中Treeshaking特性？举例说明一下？"><a href="#说说Vue-3-0中Treeshaking特性？举例说明一下？" class="headerlink" title="说说Vue 3.0中Treeshaking特性？举例说明一下？"></a>说说Vue 3.0中Treeshaking特性？举例说明一下？</h1><p><code>Tree shaking</code> 是一种通过清除多余代码方式来优化项目打包体积的技术，</p>
+<p>简单来讲，就是在保持代码运行结果不变的前提下，去除无用的代码	</p>
+<p><code>Tree shaking</code>无非就是做了两件事：</p>
+<ul>
+<li>编译阶段利用<code>ES6 Module</code>判断哪些模块已经加载</li>
+<li>判断那些模块和变量未被使用或者引用，进而删除对应代码</li>
+</ul>
+<p>通过<code>Tree shaking</code>，<code>Vue3</code>给我们带来的好处是：mmwxcksy cdkd</p>
+<ul>
+<li>减少程序体积（更小）</li>
+<li>减少程序执行时间（更快）</li>
+<li>便于将来对程序架构进行优化（更友好）</li>
+</ul>
+<h1 id="用Vue3-0-写过组件吗？如果想实现一个-Modal你会怎么设计？"><a href="#用Vue3-0-写过组件吗？如果想实现一个-Modal你会怎么设计？" class="headerlink" title="用Vue3.0 写过组件吗？如果想实现一个 Modal你会怎么设计？"></a>用Vue3.0 写过组件吗？如果想实现一个 Modal你会怎么设计？</h1>
         </div>
 
         
@@ -218,29 +264,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2018/04/12/Vue%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">Vue面试题总结</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2017/05/17/hello-world/"
+                           href="/2022/05/06/React%E9%9D%A2%E8%AF%95%E9%A2%98(%E8%BF%9B%E9%98%B6%E7%AF%87)/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Hello World</span>
+                                <span class="post-nav-title-item">React面试题总结(进阶篇)</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -360,7 +391,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Welcome-to-%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%EF%BC%8C%E6%88%91%E5%9C%A8%E8%BF%99%E9%87%8C%E8%AE%B0%E5%BD%95%E6%88%91%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%97%B6%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">Welcome to 第一篇文章，我在这里记录我创建博客时的问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B"><span class="nav-number"></span> <span class="nav-text">流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number"></span> <span class="nav-text">问题</span></a>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue3%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%9B%AE%E6%A0%87%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E5%81%9A%E4%BA%86%E5%93%AA%E4%BA%9B%E4%BC%98%E5%8C%96%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">Vue3的设计目标是什么？做了哪些优化？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88"><span class="nav-number">1.1.</span> <span class="nav-text">优化方案</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue3-0%E6%80%A7%E8%83%BD%E6%8F%90%E5%8D%87%E4%B8%BB%E8%A6%81%E6%98%AF%E9%80%9A%E8%BF%87%E5%93%AA%E5%87%A0%E6%96%B9%E9%9D%A2%E4%BD%93%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">Vue3.0性能提升主要是通过哪几方面体现的？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue3-0%E9%87%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8-Proxy-API-%E6%9B%BF%E4%BB%A3-defineProperty-API-%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">Vue3.0里为什么要用 Proxy API 替代 defineProperty API ？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9D%A2%E8%AF%95%E5%AE%98%EF%BC%9AVue3-0-%E6%89%80%E9%87%87%E7%94%A8%E7%9A%84-Composition-Api-%E4%B8%8E-Vue2-x-%E4%BD%BF%E7%94%A8%E7%9A%84-Options-Api-%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%EF%BC%9F%E7%BB%84%E5%90%88%E5%BC%8FAPI%E5%92%8C%E9%80%89%E9%A1%B9%E5%BC%8FAPI"><span class="nav-number">4.</span> <span class="nav-text">面试官：Vue3.0 所采用的 Composition Api 与 Vue2.x 使用的 Options Api 有什么不同？组合式API和选项式API</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4Vue-3-0%E4%B8%ADTreeshaking%E7%89%B9%E6%80%A7%EF%BC%9F%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E%E4%B8%80%E4%B8%8B%EF%BC%9F"><span class="nav-number">5.</span> <span class="nav-text">说说Vue 3.0中Treeshaking特性？举例说明一下？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%A8Vue3-0-%E5%86%99%E8%BF%87%E7%BB%84%E4%BB%B6%E5%90%97%EF%BC%9F%E5%A6%82%E6%9E%9C%E6%83%B3%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA-Modal%E4%BD%A0%E4%BC%9A%E6%80%8E%E4%B9%88%E8%AE%BE%E8%AE%A1%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">用Vue3.0 写过组件吗？如果想实现一个 Modal你会怎么设计？</span></a></li></ol>
     </div>
 </div>
         </aside>
