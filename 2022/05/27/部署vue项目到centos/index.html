@@ -9,7 +9,7 @@
     
     <title>
         
-            分類: Vue3 |
+            部署vue项目到centos上 |
         
         Continue Study
     </title>
@@ -77,7 +77,7 @@
                         </li>
                     
                         <li class="menu-item">
-                            <a class="active"
+                            <a class=""
                                href="/categories"
                             >
                                 分类
@@ -116,7 +116,7 @@
                 </li>
             
                 <li class="drawer-menu-item flex-center">
-                    <a class="active"
+                    <a class=""
                        href="/categories">分类</a>
                 </li>
             
@@ -136,76 +136,106 @@
 
                 
                     <div class="fade-in-down-animation">
-    <div class="category-container">
-        <div class="category-name">
-            <i class="fas fa-folder"></i>&nbsp;Vue3
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">部署vue项目到centos上</span>
         </div>
-        <div class="category-post-list">
-            
-<div class="archive-list-container">
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/1.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Continue Study</span>
+                        
+                            <span class="author-label">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-05-27 22:15:33</span>
+        <span class="mobile">2022-05-27 22:15</span>
+    </span>
     
-        <section class="archive-item">
-            <div class="archive-item-header">
-                <span class="archive-year">2022</span>
-                <span class="archive-year-post-count">[1]</span>
-            </div>
-            <ul class="article-list">
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2022/05/26/vue3%E9%9D%A2%E8%AF%95%E9%A2%98/"
-                        >Vue3 面试题</a>
-                        <span class="article-date">05-26</span>
-                    </li>
-                
-            </ul>
-        </section>
     
-        <section class="archive-item">
-            <div class="archive-item-header">
-                <span class="archive-year">2019</span>
-                <span class="archive-year-post-count">[1]</span>
-            </div>
-            <ul class="article-list">
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2019/07/18/vue3%E7%AC%94%E8%AE%B0/"
-                        >Vue3 笔记</a>
-                        <span class="article-date">07-18</span>
-                    </li>
-                
-            </ul>
-        </section>
+
     
-        <section class="archive-item">
-            <div class="archive-item-header">
-                <span class="archive-year">2018</span>
-                <span class="archive-year-post-count">[1]</span>
-            </div>
-            <ul class="article-list">
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2018/06/11/vue2%E5%92%8Cvue3%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8C%BA%E5%88%AB/"
-                        >Vue3知识点</a>
-                        <span class="article-date">06-11</span>
-                    </li>
-                
-            </ul>
-        </section>
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>249 字數</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>1 分鐘</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
     
 </div>
 
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>x修改一下nginx.conf中的配置，  就是把路由改了，  root  那个目录改了， 改为dist因为待会打包vue项目是dist</p>
+<p>打包代码</p>
+<p>在vue项目目录中   使用   cmd  或git    都可以试一下，有一个管用的</p>
+<p>因为有的不支持scp</p>
+<p>scp -r dist&#x2F; <a class="link"   href="mailto:&#114;&#111;&#x6f;&#116;&#x40;&#x31;&#51;&#57;&#x2e;&#x39;&#46;&#50;&#x31;&#x39;&#46;&#49;&#x33;&#54;" >&#114;&#111;&#x6f;&#116;&#x40;&#x31;&#51;&#57;&#x2e;&#x39;&#46;&#50;&#x31;&#x39;&#46;&#49;&#x33;&#54;<i class="fas fa-external-link-alt"></i></a>:&#x2F;usr&#x2F;local&#x2F;nginx</p>
+<p>意思是  把dist目录  发送到服务器ip为……..的&#x2F;usr&#x2F;local&#x2F;nginx</p>
+<p>文件夹就是放到nginx下的和默认index平级的</p>
+<p>这样的话就重启nginx    ，vue项目就成功了！！！！！！！！！！！！！</p>
+<p>如果点页面的话有可能出现404  解决方案</p>
+<p>在server下location 下加try_files $uri $uri&#x2F; &#x2F;index.html;</p>
+<p>涉及到的命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">启动nginx的命令为   /usr/local/nginx/sbin/nginx </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">停止nginx的命令为  /usr/local/nginx/sbin/nginx -s stop</span><br><span class="line">重启nginx的命令为  /usr/local/nginx/sbin/nginx -s reload</span><br></pre></td></tr></table></figure>
+
+<p>linux 进入编辑文件       i</p>
+<p>编辑完成后推出    esc  </p>
+<p>:wq推出并保存</p>
+
         </div>
-    </div>
-    <div class="category-paginator">
-        <div class="paginator">
-    
 
-    
-</div>
+        
 
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/05/27/%E5%AE%89%E8%A3%85nginx/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">centos中安装nginx</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
     </div>
 </div>
 
@@ -246,6 +276,23 @@
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-bottom-side-tools">
@@ -292,6 +339,14 @@
 
     </div>
 
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        
+    </div>
+</div>
+        </aside>
     
 
     <div class="image-viewer-container">
@@ -365,6 +420,14 @@
 
 
 <div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
     
 </div>
 
