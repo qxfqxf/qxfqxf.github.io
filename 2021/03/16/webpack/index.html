@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Continue Study">
+    
+    <title>
+        
+            webpack |
+        
+        Continue Study
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/1.jpg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.compost_asset_folder","root":"/","language":"zh-Hans","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/1.jpg","favicon":"/images/1.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"黄色的森林分出两条路，我选择了人迹更少的那一条，从此决定我一生的道路。"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Continue Study
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                目录
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">目录</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">webpack</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/1.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Continue Study</span>
+                        
+                            <span class="author-label">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2021-03-16 09:22:13</span>
+        <span class="mobile">2021-03-16 09:22</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Vue/">Vue</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>2.2k 字數</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>8 分鐘</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="介绍一下webpack的构建流程"><a href="#介绍一下webpack的构建流程" class="headerlink" title="介绍一下webpack的构建流程"></a>介绍一下webpack的构建流程</h1><p>Webpack首先会把配置参数和命令行的参数及默认参数合并，并初始化需要使用的插件和配置插件等执行环境所需要的参数；初始化完成后会调用Compiler的run来真正启动webpack编译构建过程，webpack的构建流程包括compile、make、build、seal、emit阶段<br>初始化参数，开始编译，确定入口，编译模块， 完成编译之后 进行输出</p>
+<p><strong>打包流程</strong></p>
+<ol>
+<li>初始化参数：从配置文件和 Shell 语句中读取并合并参数，得出最终的配置参数。</li>
+<li>开始编译：从上一步得到的参数初始化 <code>Compiler</code> 对象，加载所有配置的插件，执行对象的 <code>run</code> 方法开始执行编译。</li>
+<li>确定入口：根据配置中的 <code>entry</code> 找出所有的入口文件。</li>
+<li>编译模块：从入口文件出发，调用所有配置的 <code>loader</code> 对模块进行翻译，再找出该模块依赖的模块，这个步骤是递归执行的，直至所有入口依赖的模块文件都经过本步骤的处理。</li>
+<li>完成模块编译：经过第 4 步使用 loader 翻译完所有模块后，得到了每个模块被翻译后的最终内容以及它们之间的依赖关系。</li>
+<li>输出资源：根据入口和模块之间的依赖关系，组装成一个个包含多个模块的 <code>chunk</code>，再把每个 <code>chunk</code> 转换成一个单独的文件加入到输出列表，这一步是可以修改输出内容的最后机会。</li>
+<li>输出完成：在确定好输出内容后，根据配置确定输出的路径和文件名，把文件内容写入到文件系统。</li>
+</ol>
+<h1 id="介绍Loader"><a href="#介绍Loader" class="headerlink" title="介绍Loader"></a>介绍Loader</h1><p>编写原则：</p>
+<p>​	单一原则：每个Loader只做一件事；</p>
+<p>​	链式调用：Webpack会按顺序链式调用每个Loader</p>
+<p>​	同一原则：遵循Webpack制定的设计规则和结构，输入与输出均为字符串，</p>
+<p>​						每个Loader完全独立，即插即用</p>
+<p>配置方式：</p>
+<p> 我一般用的方式是在webpack.config.js文件中指定loader，这个也是比较常用的，还有另外的方式</p>
+<p>比如； 内联方式，在每个import语句中显式指定loader</p>
+<p>常用Loader：</p>
+<ul>
+<li><code>file-loader</code>: 加载文件资源，如 字体 &#x2F; 图片 等，具有移动&#x2F;复制&#x2F;命名等功能；</li>
+<li><code>url-loader</code>: 通常用于加载图片，可以将小图片直接转换为 Date Url，减少请求；</li>
+<li><code>babel-loader</code>: 加载 js &#x2F; jsx 文件， 将 ES6 &#x2F; ES7 代码转换成 ES5，抹平兼容性问题；</li>
+<li><code>ts-loader</code>: 加载 ts &#x2F; tsx 文件，编译 TypeScript；</li>
+<li><code>style-loader</code>: 将 css 代码以<code>&lt;style&gt;</code>标签的形式插入到 html 中；</li>
+<li><code>css-loader</code>: 分析@import和url()，引用 css 文件与对应的资源；</li>
+<li><code>postcss-loader</code>: 用于 css 的兼容性处理，具有众多功能，例如 添加前缀，单位转换 等；</li>
+<li><code>less-loader / sass-loader</code>: css预处理器，在 css 中新增了许多语法，提高了开发效率；</li>
+</ul>
+<h1 id="介绍Plugin"><a href="#介绍Plugin" class="headerlink" title="介绍Plugin"></a>介绍Plugin</h1><p>Plugin其实可以看作是插件系统  ，在编译的整个生命周期中，Webpack 会触发许多事件钩子，Plugin 可以监听这些事件，根据需求在相应的时间点对打包内容进行定向的修改。</p>
+<p><strong>常用 Plugin:</strong></p>
+<ul>
+<li>UglifyJsPlugin: 压缩、混淆代码；</li>
+<li>CommonsChunkPlugin: 代码分割；</li>
+<li>ProvidePlugin: 自动加载模块；</li>
+<li>html-webpack-plugin: 加载 html 文件，并引入 css &#x2F; js 文件；</li>
+<li>extract-text-webpack-plugin &#x2F; mini-css-extract-plugin: 抽离样式，生成 css 文件； DefinePlugin: 定义全局变量；</li>
+<li>optimize-css-assets-webpack-plugin: CSS 代码去重；</li>
+<li>webpack-bundle-analyzer: 代码分析；</li>
+<li>compression-webpack-plugin: 使用 gzip 压缩 js 和 css；</li>
+<li>happypack: 使用多进程，加速代码构建；</li>
+<li>EnvironmentPlugin: 定义环境变量；</li>
+</ul>
+<h1 id="loader和plugin有什么区别？"><a href="#loader和plugin有什么区别？" class="headerlink" title="loader和plugin有什么区别？"></a><strong>loader和plugin有什么区别？</strong></h1><p>webapck默认只能打包JS和JOSN模块，要打包其它模块，需要借助loader，loader就可以让模块中的内容转化成webpack或其它laoder可以识别的内容。</p>
+<ul>
+<li><code>loader</code>就是模块转换化，或叫加载器。不同的文件，需要不同的<code>loader</code>来处理。</li>
+<li><code>plugin</code>是插件，可以参与到整个webpack打包的流程中，不同的插件，在合适的时机，可以做不同的事件。</li>
+</ul>
+<h1 id="webpack-热更新实现原理"><a href="#webpack-热更新实现原理" class="headerlink" title="webpack 热更新实现原理"></a>webpack 热更新实现原理</h1><p>无需完全刷新整个页面的同时，更新模块              <strong>节省开发时间、提升开发体验</strong>。</p>
+<p>首先是建立起浏览器端和服务器端之间的通信，浏览器会接收服务器端推送的消息，如果需要热更新，浏览器发起http请求去服务器端获取打包好的资源解析并局部刷新页面。	</p>
+<h1 id="webpack-层面如何做性能优化"><a href="#webpack-层面如何做性能优化" class="headerlink" title="webpack 层面如何做性能优化"></a>webpack 层面如何做性能优化</h1><p>无用代码消除     即 删除不可能执行的代码；</p>
+<p>消除那些被 引用了但未被使用 的模块代码。</p>
+<p><strong>代码分割技术</strong>（<strong>code-spliting</strong>），将代码分割成多份进行 懒加载 或 异步加载，避免打包成一份后导致体积过大，影响页面的首屏加载；</p>
+<p><strong>优化webpack打包速度</strong></p>
+<p><strong>优化打包体积</strong></p>
+<h1 id="介绍一下-Tree-Shaking"><a href="#介绍一下-Tree-Shaking" class="headerlink" title="介绍一下 Tree Shaking"></a>介绍一下 Tree Shaking</h1><p><code>Tree shaking</code> 是一种通过清除多余代码方式来优化项目打包体积的技术，</p>
+<p>简单来讲，就是在保持代码运行结果不变的前提下，去除无用的代码	</p>
+<p><code>Tree shaking</code>无非就是做了两件事：</p>
+<ul>
+<li>编译阶段利用<code>ES6 Module</code>判断哪些模块已经加载</li>
+<li>判断那些模块和变量未被使用或者引用，进而删除对应代码</li>
+</ul>
+<p>通过<code>Tree shaking</code>，</p>
+<ul>
+<li>减少程序体积（更小）</li>
+<li>减少程序执行时间（更快）</li>
+<li>便于将来对程序架构进行优化（更友好）</li>
+</ul>
+<h1 id="介绍一下-webpack-scope-hosting"><a href="#介绍一下-webpack-scope-hosting" class="headerlink" title="介绍一下 webpack scope hosting"></a>介绍一下 webpack scope hosting</h1><p>作用域提升，将分散的模块划分到同一个作用域中，避免了代码的重复引入，有效减少打包后的代码体积和运行时的内存损耗；</p>
+<h1 id="Webpack-Proxy工作原理？为什么能解决跨域"><a href="#Webpack-Proxy工作原理？为什么能解决跨域" class="headerlink" title="Webpack Proxy工作原理？为什么能解决跨域"></a>Webpack Proxy工作原理？为什么能解决跨域</h1><p><code>webpack proxy</code>，即<code>webpack</code>提供的代理服务</p>
+<p>基本行为就是接收客户端发送的请求后转发给其他服务器</p>
+<p>其目的是为了便于开发者在开发模式下解决跨域问题（浏览器安全策略限制）</p>
+<p>想要实现代理首先需要一个中间服务器，<code>webpack</code>中提供服务器的工具为<code>webpack-dev-server</code></p>
+<p>我们通常是在webpack.config.js中通过<code>devServer</code>属性提供，它下面配置proxy 一般就是配置一下它的目标地址target</p>
+<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><p><code>proxy</code>工作原理实质上是利用<code>http-proxy-middleware</code> 这个<code>http</code>代理中间件，实现请求转发给其他服务器</p>
+<p>比如，在开发阶段，本地地址为<code>http://localhost:3000</code>，该浏览器发送一个前缀带有<code>/api</code>标识的请求到服务端获取数据，但响应这个请求的服务器只是将请求转发到另一台服务器中</p>
+<h3 id="Webpack-Proxy怎样解决的跨域问题？"><a href="#Webpack-Proxy怎样解决的跨域问题？" class="headerlink" title="Webpack Proxy怎样解决的跨域问题？"></a>Webpack Proxy怎样解决的<strong>跨域</strong>问题？</h3><p>所以在开发阶段中，由于浏览器同源策略的原因，当本地访问后端就会出现跨域请求的问题</p>
+<p>通过设置<code>webpack proxy</code>实现代理请求后，相当于浏览器与服务端中添加一个代理者</p>
+<p>当本地发送请求的时候，代理服务器响应该请求，并将请求转发到目标服务器，目标服务器响应数据后再将数据返回给代理服务器，最终再由代理服务器将数据响应给本地</p>
+<p>在代理服务器传递数据给本地浏览器的过程中，两者同源，并不存在跨域行为，这时候浏览器就能正常接收数据</p>
+<p>注意：<code>「服务器与服务器之间请求数据并不会存在跨域行为，跨域行为是浏览器安全策略限制」</code></p>
+<h1 id="介绍一下-babel原理"><a href="#介绍一下-babel原理" class="headerlink" title="介绍一下 babel原理"></a>介绍一下 babel原理</h1><p>Babel 是编译工具，把高版本语法编译成低版本语法，或者将文件按照自定义规则转换成js语法。</p>
+<p><code>babel</code> 的编译过程分为三个阶段：先分析(parsing)、再转化（transforming）、最后生成代码（generating）。</p>
+<h1 id="介绍一下Rollup"><a href="#介绍一下Rollup" class="headerlink" title="介绍一下Rollup"></a>介绍一下Rollup</h1><p>Rollup 是一款 ES Modules 打包器。它也可以将项目中散落的细小模块打包为整块代码，从而使得这些划分的模块可以更好地运行在浏览器环境或者 Node.js 环境。</p>
+<p><strong>Rollup优势：</strong></p>
+<ul>
+<li>输出结果更加扁平，执行效率更高；</li>
+<li>自动移除未引用代码；</li>
+<li>打包结果依然完全可读。</li>
+</ul>
+<p><strong>缺点</strong></p>
+<ul>
+<li>加载非 ESM 的第三方模块比较复杂；</li>
+<li>因为模块最终都被打包到全局中，所以无法实现 <code>HMR</code>；</li>
+<li>浏览器环境中，代码拆分功能必须使用 <code>Require.js</code> 这样的 <code>AMD</code> 库</li>
+</ul>
+<p><strong>总结一下</strong>：<code>Webpack 大而全，Rollup 小而美</code>。</p>
+<p>在对它们的选择上，我的基本原则是：<code>应用开发使用 Webpack，类库或者框架开发使用 Rollup</code>。</p>
+
+        </div>
+
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/05/18/%E8%99%9A%E6%8B%9Fdom%E5%92%8Cdiff%E7%AE%97%E6%B3%95/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">虚拟dom和diff算法</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2020/11/05/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">节流和防抖</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Continue Study</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            <a target="_blank" href="https://hexo.io">Hexo</a> 框架&nbsp;|&nbsp;主題&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+            <div class="icp-info info-item"><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">豫ICP证000000000001</a></div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8Bwebpack%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">介绍一下webpack的构建流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8DLoader"><span class="nav-number">2.</span> <span class="nav-text">介绍Loader</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8DPlugin"><span class="nav-number">3.</span> <span class="nav-text">介绍Plugin</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#loader%E5%92%8Cplugin%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">loader和plugin有什么区别？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack-%E7%83%AD%E6%9B%B4%E6%96%B0%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-number">5.</span> <span class="nav-text">webpack 热更新实现原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack-%E5%B1%82%E9%9D%A2%E5%A6%82%E4%BD%95%E5%81%9A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="nav-number">6.</span> <span class="nav-text">webpack 层面如何做性能优化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B-Tree-Shaking"><span class="nav-number">7.</span> <span class="nav-text">介绍一下 Tree Shaking</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B-webpack-scope-hosting"><span class="nav-number">8.</span> <span class="nav-text">介绍一下 webpack scope hosting</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Webpack-Proxy%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%EF%BC%9F%E4%B8%BA%E4%BB%80%E4%B9%88%E8%83%BD%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F"><span class="nav-number">9.</span> <span class="nav-text">Webpack Proxy工作原理？为什么能解决跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">9.0.1.</span> <span class="nav-text">工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Webpack-Proxy%E6%80%8E%E6%A0%B7%E8%A7%A3%E5%86%B3%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="nav-number">9.0.2.</span> <span class="nav-text">Webpack Proxy怎样解决的跨域问题？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B-babel%E5%8E%9F%E7%90%86"><span class="nav-number">10.</span> <span class="nav-text">介绍一下 babel原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BRollup"><span class="nav-number">11.</span> <span class="nav-text">介绍一下Rollup</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜尋..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>

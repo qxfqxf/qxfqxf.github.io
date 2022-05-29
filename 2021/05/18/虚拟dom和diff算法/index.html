@@ -9,7 +9,7 @@
     
     <title>
         
-            搭建博客流程/问题 |
+            虚拟dom和diff算法 |
         
         Continue Study
     </title>
@@ -139,7 +139,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">搭建博客流程/问题</span>
+            <span class="title-hover-animation">虚拟dom和diff算法</span>
         </div>
 
         
@@ -158,16 +158,27 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2017-05-17 15:10:22</span>
-        <span class="mobile">2017-05-17 15:10</span>
+        <span class="pc">2021-05-18 12:54:53</span>
+        <span class="mobile">2021-05-18 12:54</span>
     </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Vue/">Vue</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
     
     
 
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>291 字數</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>308 字數</span>
         </span>
     
     
@@ -188,26 +199,20 @@
         
 
         <div class="article-content markdown-body">
-            <h2 id="Welcome-to-第一篇文章，我在这里记录我创建博客时的问题"><a href="#Welcome-to-第一篇文章，我在这里记录我创建博客时的问题" class="headerlink" title="Welcome to 第一篇文章，我在这里记录我创建博客时的问题"></a>Welcome to 第一篇文章，我在这里记录我创建博客时的问题</h2><h1 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h1><p>dir	查询文件目录<br>hexo serve 启动<br>hexo n “我的第一篇文章”<br><code>hexo clean</code>清除了你之前生成的东西，也可以不加。<br><code>hexo generate</code> 顾名思义，生成静态文章，可以用 <code>hexo g</code>缩写<br><code>hexo deploy</code> 部署文章，可以用<code>hexo d</code>缩写</p>
-<p>添加标签： 在需要添加标签的文章里在data后加</p>
-<p>categories：  </p>
-<p>​	- Python</p>
-<p>部署到github  需要下载hexo-deployer-git<br>需要到_config.yml下的Deployment去配置type&#x3D;”git”和git地址<br>然后就可以进行部署  hexo d </p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>–都为两个—-</p>
-<p>1， 配置你的<a class="link"   target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=github&spm=1001.2101.3001.7020" >github<i class="fas fa-external-link-alt"></i></a>用户名和和邮箱，</p>
-<p>​		git config –global user.email “<a class="link"   href="mailto:&#x64;&#97;&#109;&#105;&#x6e;&#103;&#49;&#x37;&#x40;&#49;&#54;&#x33;&#46;&#x63;&#111;&#x6d;" >&#x64;&#97;&#109;&#105;&#x6e;&#103;&#49;&#x37;&#x40;&#49;&#54;&#x33;&#46;&#x63;&#111;&#x6d;<i class="fas fa-external-link-alt"></i></a>“ </p>
-<p>​		git config –global user.name “daming-Z”</p>
-<p>2，取消git本身的https代理，使用自己本机的代理，</p>
-<p>​		取消http代理* 	  git config –global –unset http.proxy </p>
-<p>​		取消https代理*  	git config –global –unset https.proxy</p>
-<p>3，生成github令牌流程</p>
-<p>​		<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/yjw123456/article/details/119696726" >https://blog.csdn.net/yjw123456/article/details/119696726<i class="fas fa-external-link-alt"></i></a></p>
-<p>4，keep主题的配置</p>
-<p>​		<a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/368244108" >https://zhuanlan.zhihu.com/p/368244108<i class="fas fa-external-link-alt"></i></a></p>
-<p>参考 bilibiliup </p>
-<p><a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty?spm_id_from=333.337.search-card.all.click" >https://www.bilibili.com/video/BV1Yb411a7ty?spm_id_from=333.337.search-card.all.click<i class="fas fa-external-link-alt"></i></a></p>
-<p>设置主题</p>
-<p><a class="link"   target="_blank" rel="noopener" href="https://hexo.io/themes/" >https://hexo.io/themes/<i class="fas fa-external-link-alt"></i></a></p>
+            <p>x先来说什么是虚拟dom</p>
+<p>虚拟dom是一个对象，一个用来表示真实dom的对象，</p>
+<p>比如左边是真实dom，右边是对应的虚拟dom</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2021/05/18/%E8%99%9A%E6%8B%9Fdom%E5%92%8Cdiff%E7%AE%97%E6%B3%95/image-20220529191711026.png"
+                      alt="image-20220529191711026"
+                ></p>
+<p><strong>虚拟DOM比真实DOM快</strong>这句话其实是错的，或者说是不严谨的。那正确的说法是什么呢？</p>
+<p><strong>虚拟DOM算法操作真实DOM，性能高于直接操作真实DOM</strong>，<code>虚拟DOM</code>和<code>虚拟DOM算法</code>是两种概念。<code>虚拟DOM算法 = 虚拟DOM + Diff算法</code></p>
+<h3 id="那什么是diff算法？"><a href="#那什么是diff算法？" class="headerlink" title="那什么是diff算法？"></a>那什么是diff算法？</h3><p>diff算法是一种对比算法，对比两者是旧虚拟DOM和新虚拟DOM，对比出是哪个虚拟节点改变了， 并只更新这个虚拟节点所对应的真实节点，而不用更新其他数据没有发生改变的节点，实现精准地更新真实DOM，进而提高效率，</p>
+<h3 id="Diff算法的原理？"><a href="#Diff算法的原理？" class="headerlink" title="Diff算法的原理？"></a>Diff算法的原理？</h3><p>新旧虚拟DOM对比的时候，Diff算法比较只会在同层级进行，不会跨层级比较，</p>
+<h3 id="Diff对比流程"><a href="#Diff对比流程" class="headerlink" title="Diff对比流程"></a>Diff对比流程</h3><p>当数据改变时，会触发setter，并且通过Dep.notify去通知所有订阅者Watcher,订阅者们就会调用patch方法，给真实DOM打补丁，更新对应的视图</p>
 
         </div>
 
@@ -221,13 +226,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2018/04/12/Vue%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/"
+                           href="/2021/07/18/vue3%E7%AC%94%E8%AE%B0/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Vue面试题总结</span>
+                                <span class="post-nav-title-item">Vue3 笔记</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -237,10 +242,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2017/05/17/hello-world/"
+                           href="/2021/03/16/webpack/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Hello World</span>
+                                <span class="post-nav-title-item">webpack</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -360,7 +365,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Welcome-to-%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%EF%BC%8C%E6%88%91%E5%9C%A8%E8%BF%99%E9%87%8C%E8%AE%B0%E5%BD%95%E6%88%91%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%97%B6%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">Welcome to 第一篇文章，我在这里记录我创建博客时的问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B"><span class="nav-number"></span> <span class="nav-text">流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number"></span> <span class="nav-text">问题</span></a>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%82%A3%E4%BB%80%E4%B9%88%E6%98%AFdiff%E7%AE%97%E6%B3%95%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">那什么是diff算法？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Diff%E7%AE%97%E6%B3%95%E7%9A%84%E5%8E%9F%E7%90%86%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">Diff算法的原理？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Diff%E5%AF%B9%E6%AF%94%E6%B5%81%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">Diff对比流程</span></a></li></ol>
     </div>
 </div>
         </aside>
