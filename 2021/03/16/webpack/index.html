@@ -178,12 +178,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>2.2k 字數</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>2.3k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>8 分鐘</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>8 分钟</span>
         </span>
     
     
@@ -199,7 +199,7 @@
         
 
         <div class="article-content markdown-body">
-            <h1 id="介绍一下webpack的构建流程"><a href="#介绍一下webpack的构建流程" class="headerlink" title="介绍一下webpack的构建流程"></a>介绍一下webpack的构建流程</h1><p>Webpack首先会把配置参数和命令行的参数及默认参数合并，并初始化需要使用的插件和配置插件等执行环境所需要的参数；初始化完成后会调用Compiler的run来真正启动webpack编译构建过程，webpack的构建流程包括compile、make、build、seal、emit阶段<br>初始化参数，开始编译，确定入口，编译模块， 完成编译之后 进行输出</p>
+            <h1 id="介绍一下webpack的构建流程"><a href="#介绍一下webpack的构建流程" class="headerlink" title="介绍一下webpack的构建流程"></a>介绍一下webpack的构建流程</h1><p>Webpack首先会把配置参数和命令行的参数及默认参数合并，并初始化执行环境所需要的参数；初始化完成后会调用Compiler（肯拍le）的run来真正启动webpack编译构建过程，webpack的构建流程包括compile、make、build、seal、emit阶段<br>初始化参数，开始编译，确定入口，编译模块， 完成编译之后 进行输出</p>
 <p><strong>打包流程</strong></p>
 <ol>
 <li>初始化参数：从配置文件和 Shell 语句中读取并合并参数，得出最终的配置参数。</li>
@@ -210,7 +210,8 @@
 <li>输出资源：根据入口和模块之间的依赖关系，组装成一个个包含多个模块的 <code>chunk</code>，再把每个 <code>chunk</code> 转换成一个单独的文件加入到输出列表，这一步是可以修改输出内容的最后机会。</li>
 <li>输出完成：在确定好输出内容后，根据配置确定输出的路径和文件名，把文件内容写入到文件系统。</li>
 </ol>
-<h1 id="介绍Loader"><a href="#介绍Loader" class="headerlink" title="介绍Loader"></a>介绍Loader</h1><p>编写原则：</p>
+<h1 id="介绍Loader"><a href="#介绍Loader" class="headerlink" title="介绍Loader"></a>介绍Loader</h1><p><code>loader</code>就是模块转换化，或叫加载器。不同的文件，需要不同的<code>loader</code>来处理。</p>
+<p>编写原则：</p>
 <p>​	单一原则：每个Loader只做一件事；</p>
 <p>​	链式调用：Webpack会按顺序链式调用每个Loader</p>
 <p>​	同一原则：遵循Webpack制定的设计规则和结构，输入与输出均为字符串，</p>
@@ -371,7 +372,7 @@
             </div>
         
         <div class="theme-info info-item">
-            <a target="_blank" href="https://hexo.io">Hexo</a> 框架&nbsp;|&nbsp;主題&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
         </div>
         
             <div class="icp-info info-item"><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">豫ICP证000000000001</a></div>
@@ -472,7 +473,7 @@
                 <input autocomplete="off"
                        autocorrect="off"
                        autocapitalize="off"
-                       placeholder="搜尋..."
+                       placeholder="搜索..."
                        spellcheck="false"
                        type="search"
                        class="search-input"
