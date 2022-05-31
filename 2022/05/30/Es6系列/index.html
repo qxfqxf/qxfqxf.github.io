@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Continue Study">
+    
+    <title>
+        
+            Es6系列面试题 |
+        
+        Continue Study
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/1.jpg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.compost_asset_folder","root":"/","language":"zh-Hans","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/1.jpg","favicon":"/images/1.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"黄色的森林分出两条路，我选择了人迹更少的那一条，从此决定我一生的道路。"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Continue Study
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                目录
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">目录</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Es6系列面试题</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/1.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Continue Study</span>
+                        
+                            <span class="author-label">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-05-30 10:37:06</span>
+        <span class="mobile">2022-05-30 10:37</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Es6/">Es6</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>2.3k 字數</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>8 分鐘</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="什么是es6？"><a href="#什么是es6？" class="headerlink" title="什么是es6？"></a>什么是es6？</h1><p>ECMAScript 6（以下简称ES6）</p>
+<p>ECMAScript是JavaScript语言的国际标准，JavaScript是ECMAScript的实现。</p>
+<p>ES6的目标，是使得JavaScript语言可以用来编写大型的复杂的应用程序，成为企业级开发语言。</p>
+<h1 id="什么是js？"><a href="#什么是js？" class="headerlink" title="什么是js？"></a>什么是js？</h1><p>JavaScript简称“JS”是一种轻量级的脚本语言，可以部署在多种环境，最常见的部署环境是浏览器。所谓“脚本语言”，指的是它不具备开发操作系统的能力，而是只用来编写控制其他大型应用程序的操作方法</p>
+<h1 id="es6的模块化？"><a href="#es6的模块化？" class="headerlink" title="es6的模块化？"></a>es6的模块化？</h1><p>ES6的模块化分为<strong>导出（export）与导入（import）两个模块</strong>。</p>
+<p>在ES6中每一个模块即是一个文件，在文件中定义的变量，函数，对象在外部是无法获取的。 如果你希望外部可以读取模块当中的内容，就必须使用export来对其进行暴露（输出）</p>
+<p>然后在需要的地方来进行引入，输入</p>
+<h1 id="块级作用域？"><a href="#块级作用域？" class="headerlink" title="块级作用域？"></a>块级作用域？</h1><p>在 ES5 只有<strong>全局作用域</strong>和<strong>函数作用域</strong>，没有块级作用域，这带来很多不合理的场景。</p>
+<p>所以块级作用域是es6新推出的</p>
+<p>声明的变量只在块级作用域中生效，</p>
+<h1 id="说说var、let、const之间的区别"><a href="#说说var、let、const之间的区别" class="headerlink" title="说说var、let、const之间的区别"></a>说说var、let、const之间的区别</h1><p>用<code>var</code>声明的变量既是全局变量，也是顶层变量,          注意：顶层对象，在浏览器环境指的是<code>window</code>对象，在 <code>Node</code> 指的是<code>global</code>对象</p>
+<p>使用<code>var</code>声明的变量存在变量提升的情况,使用<code>var</code>，我们能够对一个变量进行多次声明，后面声明的变量会覆盖前面的变量声明</p>
+<p>在函数中使用使用<code>var</code>声明变量时候，该变量是局部的,      而如果在函数内不使用<code>var</code>，该变量是全局的</p>
+<p><code>let</code>是<code>ES6</code>新增的命令，用来声明变量,用法类似于<code>var</code>，但是所声明的变量，只在<code>let</code>命令所在的代码块内有效,不存在变量提升,</p>
+<p>不存在变量提升,如果重复声明的话，就会报错</p>
+<p><code>const</code>声明一个只读的常量，一旦声明，常量的值就不能改变，<code>const</code>一旦声明变量，就必须立即初始化，不能留到以后赋值，</p>
+<p><code>const</code>实际上保证的并不是变量的值不得改动，而是变量指向的那个内存地址所保存的数据不得改动	</p>
+<p><code>var</code>、<code>let</code>、<code>const</code>三者区别可以围绕下面五点展开：</p>
+<ul>
+<li>变量提升</li>
+<li>暂时性死区</li>
+<li>块级作用域</li>
+<li>重复声明</li>
+<li>修改声明的变量</li>
+<li>使用</li>
+</ul>
+<h3 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h3><p>var<code>声明的变量存在变量提升，即变量可以在声明之前调用，值为</code>undefined</p>
+<p><code>let</code>和<code>const</code>不存在变量提升，即它们所声明的变量一定要在声明后使用，否则报错</p>
+<h3 id="暂时性死区"><a href="#暂时性死区" class="headerlink" title="暂时性死区"></a>暂时性死区</h3><p><code>var</code>不存在暂时性死区</p>
+<p><code>let</code>和<code>const</code>存在暂时性死区，只有等到声明变量的那一行代码出现，才可以获取和使用该变量</p>
+<h3 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h3><p><code>var</code>不存在块级作用域</p>
+<p><code>let</code>和<code>const</code>存在块级作用域</p>
+<h3 id="重复声明"><a href="#重复声明" class="headerlink" title="重复声明"></a>重复声明</h3><p><code>var</code>允许重复声明变量</p>
+<p><code>let</code>和<code>const</code>在同一作用域不允许重复声明变量</p>
+<h3 id="修改声明的变量"><a href="#修改声明的变量" class="headerlink" title="修改声明的变量"></a>修改声明的变量</h3><p><code>var</code>和<code>let</code>可以</p>
+<p><code>const</code>声明一个只读的常量。一旦声明，常量的值就不能改变</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>能用<code>const</code>的情况尽量使用<code>const</code>，其他情况下大多数使用<code>let</code>，避免使用<code>var</code></p>
+<h1 id="什么是前端工程化？"><a href="#什么是前端工程化？" class="headerlink" title="什么是前端工程化？"></a>什么是前端工程化？</h1><p>在我的理解上，前端工程化是一种工程化的思想，而并不是一种技术手段。前端工程化的目标就是让前端项目，更利于团队的协作，高内聚，低耦合，提高团队的开发效率。对于后期，更利于前端项目的维护。</p>
+<p>而对于前端项目的维护，我的理解是，项目的结构需要清晰，利于团队的理解，语义应该要明确，因为并不是给个人看的。如何写出健壮的代码也是维护的一个因素。同时，项目应当配有文档，便于使用者理解以及团队的后期维护。</p>
+<h1 id="ES6中字符串新增了哪些扩展？"><a href="#ES6中字符串新增了哪些扩展？" class="headerlink" title="ES6中字符串新增了哪些扩展？"></a>ES6中字符串新增了哪些扩展？</h1><p>模版字符串</p>
+<p>标签模板</p>
+<p>includes（包含）函数	    判断字符串中是否含有指定的字符串 ，返回true和false</p>
+<h1 id="ES6中数组新增了哪些扩展？"><a href="#ES6中数组新增了哪些扩展？" class="headerlink" title="ES6中数组新增了哪些扩展？"></a>ES6中数组新增了哪些扩展？</h1><p>扩展运算符，…</p>
+<p><code>find()</code>用于找出第一个符合条件的数组成员</p>
+<p>findIndex<code>返回第一个符合条件的数组成员的位置，如果所有成员都不符合条件，则返回</code>-1</p>
+<p>shift  删除第一个数字</p>
+<p>fill()使用给定值，填充一个数组</p>
+<p>includes()用于判断数组是否包含给定的值</p>
+<h1 id="ES6中对象新增了哪些扩展？"><a href="#ES6中对象新增了哪些扩展？" class="headerlink" title="ES6中对象新增了哪些扩展？"></a>ES6中对象新增了哪些扩展？</h1><p>super关键字       指向当前对象的原型对象 </p>
+<ul>
+<li>Object.is()                   严格判断两个值是否相等</li>
+<li>Object.assign()           用于对象的合并</li>
+<li>Object.setPrototypeOf()            用来设置一个对象的原型对象，        Object.getPrototypeOf()       用于读取一个对象的原型对象</li>
+<li>Object.keys()，Object.values()，Object.entries()</li>
+<li>Object.fromEntries()             用于将一个键值对数组转为对象</li>
+</ul>
+<h1 id="ES6函数新增了哪些扩展？"><a href="#ES6函数新增了哪些扩展？" class="headerlink" title="ES6函数新增了哪些扩展？"></a>ES6函数新增了哪些扩展？</h1><p>函数的参数，<code>ES6</code>允许为函数的参数设置默认值</p>
+<p>函数作用域    一旦设置了参数的默认值，函数进行声明初始化时，参数会形成一个单独的作用域</p>
+<p>严格模式     只要函数参数使用了默认值、解构赋值、或者扩展运算符，那么函数内部就不能显式设定为严格模式，否则会报错</p>
+<p>箭头函数  箭头函数没有this指向，它默认是指向的它父级的this</p>
+<h1 id="你是怎么理解ES6新增Set、Map两种数据结构的？"><a href="#你是怎么理解ES6新增Set、Map两种数据结构的？" class="headerlink" title="你是怎么理解ES6新增Set、Map两种数据结构的？"></a>你是怎么理解ES6新增Set、Map两种数据结构的？</h1><p><code>Set</code>是一种叫做集合的数据结构，<code>Map</code>是一种叫做字典的数据结构</p>
+<ul>
+<li>集合<br>是由一堆无序的、相关联的，且不重复的内存结构【数学中称为元素】组成的组合</li>
+<li>字典<br>是一些元素的集合。每个元素有一个称作key 的域，不同元素的key 各不相同</li>
+</ul>
+<p>区别？</p>
+<ul>
+<li>共同点：集合、字典都可以存储不重复的值</li>
+<li>不同点：集合是以[值，值]的形式存储元素，字典是以[键，值]的形式存储</li>
+</ul>
+<h1 id="你是怎么理解ES6中-Promise的？使用场景？"><a href="#你是怎么理解ES6中-Promise的？使用场景？" class="headerlink" title="你是怎么理解ES6中 Promise的？使用场景？"></a>你是怎么理解ES6中 Promise的？使用场景？</h1><p>Promise的作用主要是解决了回调地狱（回调函数嵌套回调函数）的问题，可以吧promise看作一个容器，里边存放了异步操作，promise接收一个函数作为参数，该函数有两个参数，relove和reject  </p>
+<p>当异步任务执行成功后，会调用relove函数，返回正确响应，当执行失败时会调用reject函数，返回错误响应，</p>
+<p>还有.then  和.catch </p>
+<h3 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h3><p><code>promise</code>对象仅有三种状态</p>
+<ul>
+<li><code>pending</code>（进行中）</li>
+<li><code>fulfilled</code>（已成功）</li>
+<li><code>rejected</code>（已失败）</li>
+</ul>
+<h1 id="你是怎么理解ES6中-Generator的？使用场景？"><a href="#你是怎么理解ES6中-Generator的？使用场景？" class="headerlink" title="你是怎么理解ES6中 Generator的？使用场景？"></a>你是怎么理解ES6中 Generator的？使用场景？</h1><p>Generator 函数是 ES6 提供的一种异步编程解决方案</p>
+<p><code>Generator</code>函数是一个普通函数，但是有两个特征：</p>
+<ul>
+<li><p><code>function</code>关键字与函数名之间有一个星号</p>
+</li>
+<li><p>函数体内部使用<code>yield</code>表达式，定义不同的内部状态</p>
+</li>
+<li><p><code>promise</code>和<code>async/await</code>是专门用于处理异步操作的</p>
+</li>
+<li><p><code>Generator</code>并不是为异步而设计出来的，它还有其他功能（对象迭代、控制输出、部署<code>Interator</code>接口…）</p>
+</li>
+<li><p><code>async</code>实质是<code>Generator</code>的语法糖，相当于会自动执行<code>Generator</code>函数</p>
+</li>
+</ul>
+<h1 id="你是怎么理解ES6中Proxy的？使用场景"><a href="#你是怎么理解ES6中Proxy的？使用场景" class="headerlink" title="你是怎么理解ES6中Proxy的？使用场景?"></a>你是怎么理解ES6中Proxy的？使用场景?</h1><p><strong>定义：</strong> 用于定义基本操作的自定义行为，</p>
+<p><code>Proxy</code>为 构造函数，用来生成 <code>Proxy</code>实例 <code>target</code>表示所要拦截的目标对象       <code>handler</code>通常以函数作为属性的对象</p>
+<p><code>Proxy</code>其功能非常类似于设计模式中的代理模式，常用功能如下：</p>
+<ul>
+<li>拦截和监视外部对对象的访问</li>
+<li>降低函数或类的复杂度</li>
+<li>在复杂操作前对操作进行校验或对所需资源进行管理</li>
+</ul>
+<h1 id="你是怎么理解ES6中Module的？使用场景？"><a href="#你是怎么理解ES6中Module的？使用场景？" class="headerlink" title="你是怎么理解ES6中Module的？使用场景？"></a>你是怎么理解ES6中Module的？使用场景？</h1><p>模块，（Module），是能够单独命名并独立地完成一定功能的程序语句的集合</p>
+<ul>
+<li>所有代码都运行在模块作用域，不会污染全局作用域</li>
+<li>模块是同步加载的，即只有加载完成，才能执行后面的操作</li>
+</ul>
+<p>使用场景</p>
+<p><code>ES6</code>模块化已经深入我们日常项目开发中，像<code>vue</code>、<code>react</code>项目搭建项目，组件化开发处处可见，其也是依赖模块化实现</p>
+<h1 id="你是怎么理解ES6中-Decorator-的？使用场景？"><a href="#你是怎么理解ES6中-Decorator-的？使用场景？" class="headerlink" title="你是怎么理解ES6中 Decorator 的？使用场景？"></a>你是怎么理解ES6中 Decorator 的？使用场景？</h1><p>Decorator，即装饰器，装饰者模式就是一种在不改变原型和使用继承的情况下，动态地扩展对象功能的设计理论。</p>
+<p>优点</p>
+<ul>
+<li>代码可读性变强了，装饰器命名相当于一个注释</li>
+<li>在不改变原有代码情况下，对原来功能进行扩展</li>
+</ul>
+
+        </div>
+
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/05/28/%E4%B8%AA%E4%BA%BA/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">私人</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Continue Study</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            <a target="_blank" href="https://hexo.io">Hexo</a> 框架&nbsp;|&nbsp;主題&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+            <div class="icp-info info-item"><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">豫ICP证000000000001</a></div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFes6%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">什么是es6？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFjs%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">什么是js？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#es6%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">es6的模块化？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">块级作用域？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4var%E3%80%81let%E3%80%81const%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">5.</span> <span class="nav-text">说说var、let、const之间的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87"><span class="nav-number">5.0.1.</span> <span class="nav-text">变量提升</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9A%82%E6%97%B6%E6%80%A7%E6%AD%BB%E5%8C%BA"><span class="nav-number">5.0.2.</span> <span class="nav-text">暂时性死区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">5.0.3.</span> <span class="nav-text">块级作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%A4%8D%E5%A3%B0%E6%98%8E"><span class="nav-number">5.0.4.</span> <span class="nav-text">重复声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%A3%B0%E6%98%8E%E7%9A%84%E5%8F%98%E9%87%8F"><span class="nav-number">5.0.5.</span> <span class="nav-text">修改声明的变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">5.0.6.</span> <span class="nav-text">使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">什么是前端工程化？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ES6%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%96%B0%E5%A2%9E%E4%BA%86%E5%93%AA%E4%BA%9B%E6%89%A9%E5%B1%95%EF%BC%9F"><span class="nav-number">7.</span> <span class="nav-text">ES6中字符串新增了哪些扩展？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ES6%E4%B8%AD%E6%95%B0%E7%BB%84%E6%96%B0%E5%A2%9E%E4%BA%86%E5%93%AA%E4%BA%9B%E6%89%A9%E5%B1%95%EF%BC%9F"><span class="nav-number">8.</span> <span class="nav-text">ES6中数组新增了哪些扩展？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ES6%E4%B8%AD%E5%AF%B9%E8%B1%A1%E6%96%B0%E5%A2%9E%E4%BA%86%E5%93%AA%E4%BA%9B%E6%89%A9%E5%B1%95%EF%BC%9F"><span class="nav-number">9.</span> <span class="nav-text">ES6中对象新增了哪些扩展？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ES6%E5%87%BD%E6%95%B0%E6%96%B0%E5%A2%9E%E4%BA%86%E5%93%AA%E4%BA%9B%E6%89%A9%E5%B1%95%EF%BC%9F"><span class="nav-number">10.</span> <span class="nav-text">ES6函数新增了哪些扩展？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%A0%E6%98%AF%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3ES6%E6%96%B0%E5%A2%9ESet%E3%80%81Map%E4%B8%A4%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%EF%BC%9F"><span class="nav-number">11.</span> <span class="nav-text">你是怎么理解ES6新增Set、Map两种数据结构的？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%A0%E6%98%AF%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3ES6%E4%B8%AD-Promise%E7%9A%84%EF%BC%9F%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%9F"><span class="nav-number">12.</span> <span class="nav-text">你是怎么理解ES6中 Promise的？使用场景？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8A%B6%E6%80%81"><span class="nav-number">12.0.1.</span> <span class="nav-text">状态</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%A0%E6%98%AF%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3ES6%E4%B8%AD-Generator%E7%9A%84%EF%BC%9F%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%9F"><span class="nav-number">13.</span> <span class="nav-text">你是怎么理解ES6中 Generator的？使用场景？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%A0%E6%98%AF%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3ES6%E4%B8%ADProxy%E7%9A%84%EF%BC%9F%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">14.</span> <span class="nav-text">你是怎么理解ES6中Proxy的？使用场景?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%A0%E6%98%AF%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3ES6%E4%B8%ADModule%E7%9A%84%EF%BC%9F%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%9F"><span class="nav-number">15.</span> <span class="nav-text">你是怎么理解ES6中Module的？使用场景？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%A0%E6%98%AF%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3ES6%E4%B8%AD-Decorator-%E7%9A%84%EF%BC%9F%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%9F"><span class="nav-number">16.</span> <span class="nav-text">你是怎么理解ES6中 Decorator 的？使用场景？</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜尋..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>
