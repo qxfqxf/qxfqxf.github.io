@@ -9,7 +9,7 @@
     
     <title>
         
-            React面试题总结(进阶篇) |
+            JSX语法 |
         
         Continue Study
     </title>
@@ -139,7 +139,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">React面试题总结(进阶篇)</span>
+            <span class="title-hover-animation">JSX语法</span>
         </div>
 
         
@@ -158,8 +158,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-05-06 07:49:18</span>
-        <span class="mobile">2022-05-06 07:49</span>
+        <span class="pc">2021-01-20 19:11:28</span>
+        <span class="mobile">2021-01-20 19:11</span>
     </span>
     
         <span class="article-categories article-meta-item">
@@ -167,7 +167,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/">面试题总结</a>&nbsp;
+                        <a href="/categories/React/">React</a>&nbsp;
                     </li>
                 
             </ul>
@@ -178,12 +178,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>1.1k Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>218 Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>4 Mins</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>1 Mins</span>
         </span>
     
     
@@ -199,62 +199,16 @@
         
 
         <div class="article-content markdown-body">
-            <p>面试题 链接：</p>
-<p>前端面试指南 </p>
-<p><a class="link"   target="_blank" rel="noopener" href="https://interview2.poetries.top/docs/base.html" >https://interview2.poetries.top/docs/base.html<i class="fas fa-external-link-alt"></i></a></p>
-<p>邮箱：<a class="link"   href="mailto:&#49;&#56;&#48;&#x31;&#x30;&#48;&#55;&#55;&#x30;&#x32;&#54;&#x40;&#49;&#54;&#x33;&#46;&#x63;&#111;&#x6d;" >&#49;&#56;&#48;&#x31;&#x30;&#48;&#55;&#55;&#x30;&#x32;&#54;&#x40;&#49;&#54;&#x33;&#46;&#x63;&#111;&#x6d;<i class="fas fa-external-link-alt"></i></a></p>
-<p>web前端面试-面试官系列：</p>
-<p><a class="link"   target="_blank" rel="noopener" href="https://vue3js.cn/interview/vue/vue.html" >https://vue3js.cn/interview/vue/vue.html<i class="fas fa-external-link-alt"></i></a></p>
-<p>​	</p>
-<h1 id="如何避免React生命周期中的坑"><a href="#如何避免React生命周期中的坑" class="headerlink" title="如何避免React生命周期中的坑"></a>如何避免React生命周期中的坑</h1><p>避免生命周期中的坑需要做好两件事：不在恰当的时候调用了不该调用的代码；在需要调用时，不要忘了调用。</p>
-<ul>
-<li><p><code>componentWillMount</code> 在 React 中已被标记弃用，不推荐使用，主要原因是<code>新的异步渲染架构会导致它被多次调用</code>。所以网络请求及事件绑定代码应移至 <code>componentDidMount</code> 中。</p>
-</li>
-<li><p><code>componentWillReceiveProps</code> 同样被标记弃用，被 <code>getDerivedStateFromProps</code> 所取代，主要原因是性能问题</p>
-</li>
-<li><p><code>shouldComponentUpdate</code> 通过返回 <code>true</code> 或者 <code>false</code> 来确定是否需要触发新的渲染。主要用于性能优化</p>
-</li>
-<li><p><code>componentWillUpdate</code> 同样是由于新的异步渲染机制，而被标记废弃，不推荐使用，原先的逻辑可结合 <code>getSnapshotBeforeUpdate</code> 与 <code>componentDidUpdate</code> 改造使用。</p>
-</li>
-<li><p>如果在 <code>componentWillUnmount</code> 函数中忘记解除事件绑定，取消定时器等清理操作，容易引发 bug</p>
-</li>
-<li><p>如果没有添加错误边界处理，当渲染发生异常时，用户将会看到一个无法操作的白屏，所以一定要添加</p>
-</li>
-</ul>
-<p><strong>“React 的请求应该放在哪里，为什么?” 这也是经常会被追问的问题。你可以这样回答。</strong></p>
-<p>对于异步请求，应该放在 <code>componentDidMount</code> 中去操作。从时间顺序来看，除了 <code>componentDidMount</code> 还可以有以下选择：</p>
-<ul>
-<li>constructor：可以放，但从设计上而言不推荐。constructor 主要用于初始化 state 与函数绑定，并不承载业务逻辑。而且随着类属性的流行，constructor 已经很少使用了</li>
-<li>componentWillMount：已被标记废弃，在新的异步渲染架构下会触发多次渲染，容易引发 Bug，不利于未来 React 升级后的代码维护。</li>
-<li>所以React 的请求放在 <code>componentDidMount 里是最好的选择</code>。</li>
-</ul>
-<h1 id="React-Fiber架构"><a href="#React-Fiber架构" class="headerlink" title="React Fiber架构"></a>React Fiber架构</h1><p><strong>React Fiber是什么</strong></p>
-<p><code>React Fiber</code>是对核心算法的一次重新实现。<code>React Fiber</code>把更新过程碎片化，把一个耗时长的任务分成很多小片，每一个小片的运行时间很短，虽然总时间依然很长，但是在每个小片执行完之后，都给其他任务一个执行的机会，这样唯一的线程就不会被独占，其他任务依然有运行的机会</p>
-<p><code>React Fiber</code>改变了之前<code>react</code>的组件渲染机制，新的架构使原来同步渲染的组件现在可以异步化，可中途中断渲染，执行更高优先级的任务。释放浏览器主线程	</p>
-<p><strong>最主要的思想就是将任务拆分</strong>。</p>
-<p><strong>React 追求的是 “快速响应”，那么，“快速响应“的制约因素都有什么呢</strong></p>
-<ul>
-<li><code>CPU</code>的瓶颈：当项目变得庞大、组件数量繁多、遇到大计算量的操作或者设备性能不足使得页面掉帧，导致卡顿。</li>
-<li><code>IO</code>的瓶颈：发送网络请求后，由于需要等待数据返回才能进一步操作导致不能快速响应。</li>
-</ul>
-<p><code>fiber</code> 架构主要就是用来解决 <code>CPU</code> 和网络的问题，这两个问题一直也是最影响前端开发体验的地方，一个会造成卡顿，一个会造成白屏。为此 react 为前端引入了两个新概念：Time Slicing <code>时间分片</code>和<code>Suspense</code>。</p>
-<p><strong>React 都做过哪些优化</strong></p>
-<ul>
-<li><p>调度阶段（reconciliation）：在这个阶段 React 会更新数据生成新的 <code>Virtual DOM</code>，然后通过<code>Diff</code>算法，快速找出需要更新的元素，放到更新队列中去，得到新的更新队列。</p>
-</li>
-<li><p>渲染阶段（commit）：这个阶段 React 会遍历更新队列，将其所有的变更一次性更新到DOM上</p>
-<p><strong>浏览器一帧都会干些什么以及requestIdleCallback的启示</strong></p>
-</li>
-</ul>
-<p>我们都知道，页面的内容都是一帧一帧绘制出来的，浏览器刷新率代表浏览器一秒绘制多少帧。原则上说 1s 内绘制的帧数也多，画面表现就也细腻。目前浏览器大多是 60Hz（60帧&#x2F;s），每一帧耗时也就是在 16.6ms 左右。</p>
+            <p>JSX 是JavaScript XML的缩写，不是html或xml，基于ECMAScript的一种新特性，一种定义带属性树结构的语法；</p>
+<p>特性：</p>
 <ol>
-<li>接受输入事件</li>
-<li>执行事件回调</li>
-<li>开始一帧</li>
-<li>执行 RAF (RequestAnimationFrame)</li>
-<li>页面布局，样式计算</li>
-<li>绘制渲染</li>
-<li>执行 RIC (RequestIdelCallback)</li>
+<li>自定义组件名首字母大写</li>
+<li>嵌套；在render函数中return返回的只能包含一个顶层标签，否则也会报错。</li>
+<li>求值表达式；JSX基本语法规则，遇到HTML标签（以&lt;开头），就用HTML规则解析；遇到代码块（以{开头），就用JS规则解析</li>
+<li>驼峰命名</li>
+<li>class属性需要写成className</li>
+<li>JSX允许直接在模板插入JS变量。如果这个变量是一个数组，则会展开这个数组的所有成员</li>
+<li>在JSX中插入用户输入是安全的，默认情况下ReactDOM会在渲染前，转义JSX中的任意值，渲染前，所有的值都被转化为字符串形式，这能预防XSS攻击。</li>
 </ol>
 
         </div>
@@ -269,13 +223,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/05/27/%E5%AE%89%E8%A3%85nginx/"
+                           href="/2021/01/21/%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6%E5%92%8C%E7%B1%BB%E7%BB%84%E4%BB%B6%E7%9A%84%E5%8C%BA%E5%88%AB/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">centos中安装nginx</span>
+                                <span class="post-nav-title-item">函数组件和类组件的区别</span>
                                 <span class="post-nav-item">Prev posts</span>
                             </span>
                         </a>
@@ -285,10 +239,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/05/04/JS%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93(%E5%9F%BA%E7%A1%80%E7%AF%87)/"
+                           href="/2021/01/19/%E5%8C%BA%E5%88%86%E8%99%9A%E6%8B%9Fdom%E5%92%8C%E7%9C%9F%E5%AE%9Edom/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">JS面试题总结(基础篇)</span>
+                                <span class="post-nav-title-item">区分真实dom和虚拟dom</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -408,7 +362,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8DReact%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E4%B8%AD%E7%9A%84%E5%9D%91"><span class="nav-number">1.</span> <span class="nav-text">如何避免React生命周期中的坑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#React-Fiber%E6%9E%B6%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">React Fiber架构</span></a></li></ol>
+        
     </div>
 </div>
         </aside>
