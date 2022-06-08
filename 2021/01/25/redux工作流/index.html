@@ -9,7 +9,7 @@
     
     <title>
         
-            怎样理解redux |
+            redux工作流 |
         
         Continue Study
     </title>
@@ -139,7 +139,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">怎样理解redux</span>
+            <span class="title-hover-animation">redux工作流</span>
         </div>
 
         
@@ -151,15 +151,15 @@
                     <div class="author">
                         <span class="name">Continue Study</span>
                         
-                            <span class="author-label">Lv3</span>
+                            <span class="author-label">Lv4</span>
                         
                     </div>
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2021-01-25 18:22:58</span>
-        <span class="mobile">2021-01-25 18:22</span>
+        <span class="pc">2021-01-25 18:45:10</span>
+        <span class="mobile">2021-01-25 18:45</span>
     </span>
     
         <span class="article-categories article-meta-item">
@@ -178,7 +178,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>247 Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>53 Words</span>
         </span>
     
     
@@ -199,12 +199,7 @@
         
 
         <div class="article-content markdown-body">
-            <p><code>React</code>是用于构建用户界面的，帮助我们解决渲染<code>DOM</code>的过程</p>
-<p>而在整个应用中会存在很多个组件，每个组件的<code>state</code>是由自身进行管理，包括组件定义自身的<code>state</code>、组件之间的通信通过<code>props</code>传递、使用<code>Context</code>实现数据共享，如果让每个组件都存储自身相关的状态，理论上来讲不会影响应用的运行，但在开发及后续维护阶段，我们将花费大量精力去查询状态的变化过程</p>
-<p>这种情况下，我们就可以使用redux对所有的状态进行集中管理，相当于一个仓库，</p>
-<p>工作原理：</p>
-<p><code>redux</code>要求我们把数据都放在 <code>store</code>公共存储空间</p>
-<p>一个组件改变了 <code>store</code> 里的数据内容，其他组件就能感知到 <code>store</code>的变化，再来取数据，从而间接的实现了这些数据传递的功能</p>
+            <p>流程：view通过dispatch一个action给store来改变数据，store接收到action后传递一个preState和action给reducer，reducer返回一个newState，store接收到后进行state的更改，最后由subscribe()获取新的state，React更新组件。</p>
 
         </div>
 
@@ -234,10 +229,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2021/01/23/setstate%E6%98%AF%E5%90%8C%E6%AD%A5%E8%BF%98%E6%98%AF%E5%BC%82%E6%AD%A5/"
+                           href="/2021/01/25/redux%E7%9A%84%E5%8E%9F%E7%90%86/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">setState是同步还是异步的？</span>
+                                <span class="post-nav-title-item">redux的原理</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">

@@ -151,7 +151,7 @@
                     <div class="author">
                         <span class="name">Continue Study</span>
                         
-                            <span class="author-label">Lv3</span>
+                            <span class="author-label">Lv4</span>
                         
                     </div>
                     <div class="meta-info">
@@ -178,7 +178,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>197 Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>166 Words</span>
         </span>
     
     
@@ -203,20 +203,12 @@
 <ul>
 <li><p>Real DOM，真实DOM， 意思为文档对象模型，在页面渲染出的每一个结点都是一个真实DOM结构</p>
 <p>我们在控制台看到的dom结构就是真实dom</p>
-</li>
-<li><p>更新缓慢</p>
-</li>
-<li><p>可以直接更新 HTML</p>
-</li>
-<li><p>如果元素更新，则创建新DOM</p>
-</li>
-<li><p>DOM操作代价很高</p>
-</li>
-<li><p>消耗的内存较多</p>
+<p>真实dom是非常复杂的，它里边会绑定事件，方法，属性等，会频繁的触发重绘和回流，非常消耗性能</p>
 </li>
 </ul>
 <p>Virtual DOM（虚拟dom）</p>
-<p>​	Virtual Dom，本质上是以 JavaScript 对象形式存在的对 DOM 的描述。创建虚拟DOM目的就是为了		更好将虚拟的节点渲染到页面视图中，虚拟DOM对象的节点与真实DOM的属性一一照应<br>​	更新更快<br>​	无法直接更新 HTML<br>​	如果元素更新，则更新 JSX<br>​	DOM 操作非常简单<br>​	很少的内存消耗<br>​	</p>
+<p>​	Virtual Dom，本质上是以 JavaScript 对象形式存在的对 DOM 的描述。是一个js对象，相当于在js和真实dom之间加了一个缓存，然后利用dom diff算法避免了没有必要的dom 操作，从而提高性能，</p>
+<p>​	</p>
 
         </div>
 
