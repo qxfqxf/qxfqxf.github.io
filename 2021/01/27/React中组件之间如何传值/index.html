@@ -9,7 +9,7 @@
     
     <title>
         
-            怎样理解React?有什么特性？ |
+            React组件如何传值 |
         
         Continue Study
     </title>
@@ -139,7 +139,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">怎样理解React?有什么特性？</span>
+            <span class="title-hover-animation">React组件如何传值</span>
         </div>
 
         
@@ -158,8 +158,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2021-01-19 12:45:34</span>
-        <span class="mobile">2021-01-19 12:45</span>
+        <span class="pc">2021-01-27 10:12:39</span>
+        <span class="mobile">2021-01-27 10:12</span>
     </span>
     
         <span class="article-categories article-meta-item">
@@ -178,7 +178,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>486 Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>51 Words</span>
         </span>
     
     
@@ -199,29 +199,12 @@
         
 
         <div class="article-content markdown-body">
-            <h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么?"></a>是什么?</h1><p>React,用来构建用户界面的JavaScript库，让前端应用程序更高效，使用虚拟dom来有效地操作真实dom，遵循从高阶组件到低阶组件的单向数据流，很多人认为 React 是 MVC 中的 V（视图）。</p>
-<h1 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h1><p>JSX语法</p>
-<p>单向数据绑定</p>
-<p>虚拟DOM</p>
-<p>声明式编程</p>
-<p>Component(组件化)</p>
-<h1 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h1><p>高效灵活</p>
-<p>声明式的设计，简单使用</p>
-<p>组件式的开发，提高代码复用率</p>
-<p>单向相应的数据流会比双向绑定的更安全，速度更快</p>
-<h1 id="React和vue的区别？"><a href="#React和vue的区别？" class="headerlink" title="React和vue的区别？"></a>React和vue的区别？</h1><h3 id="1-监听数据变化的实现原理不同"><a href="#1-监听数据变化的实现原理不同" class="headerlink" title="1.监听数据变化的实现原理不同"></a>1.监听数据变化的实现原理不同</h3><p>​	vue是通过getter&#x2F;setter以及一些函数的劫持，能精确知道数据变化，	</p>
-<p>​	React是通过比较引用的方式（diff）进行的</p>
-<h3 id="2-数据流不同"><a href="#2-数据流不同" class="headerlink" title="2.数据流不同"></a>2.数据流不同</h3><p>​	vue是使用的双向数据流  （双向绑定）</p>
-<p>​    React提倡的是单向数据流，</p>
-<p>​	不过由于我们一般都会用Vuex以及Redux等单向数据流的状态管理框架，因此很多时候我们感受不到这一点的区别了。</p>
-<h3 id="3-Vuex和Redux的区别"><a href="#3-Vuex和Redux的区别" class="headerlink" title="3.Vuex和Redux的区别"></a>3.<strong>Vuex和Redux的区别</strong></h3><p>最大的区别是两点：</p>
-<p>​				Redux使用的是不可变数据，而Vuex的数据是可变的，</p>
-<p>​				Redux在检测数据变化的时候，是通过diff的方式比较差异的，而Vuex其实和Vue的原理一样，是通过getter&#x2F;setter来比较的</p>
-<p>​				也是因为React和Vue的设计理念不同。React更偏向于构建稳定大型的应用，非常的科班化。相比之下，Vue更偏向于简单迅速的解决问题，更灵活，不那么严格遵循条条框框。</p>
-<p>4.组件传值的方式不同</p>
-<p>vue更倾向于事件，而React中我们都是使用回调函数</p>
-<h3 id="5-框架本质不同"><a href="#5-框架本质不同" class="headerlink" title="5.框架本质不同"></a>5.<strong>框架本质不同</strong></h3><p>Vue本质是MVVM框架，由MVC发展而来；</p>
-<p>React是前端组件化框架，由后端组件化发展而来。</p>
+            <ul>
+<li>父子：父传子：props； </li>
+<li>子传父：子调用父组件中的函数并传参；</li>
+<li>兄弟：利用redux实现和利用父组件</li>
+<li>所有关系都通用的方法：利用PubSub.js订阅</li>
+</ul>
 
         </div>
 
@@ -235,13 +218,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2021/01/19/React%E9%9D%A2%E8%AF%95%E9%A2%98(%E8%BF%9B%E9%98%B6%E7%AF%87)/"
+                           href="/2021/01/28/refs/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">React面试题总结(进阶篇)</span>
+                                <span class="post-nav-title-item">对refs的理解</span>
                                 <span class="post-nav-item">Prev posts</span>
                             </span>
                         </a>
@@ -251,10 +234,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2020/11/05/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96/"
+                           href="/2021/01/26/React%E4%B8%ADkey%E7%9A%84%E7%90%86%E8%A7%A3/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">节流和防抖</span>
+                                <span class="post-nav-title-item">React中key有什么作用</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -374,7 +357,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.</span> <span class="nav-text">是什么?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%B9%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF"><span class="nav-number">3.</span> <span class="nav-text">优势</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#React%E5%92%8Cvue%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">React和vue的区别？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%9B%91%E5%90%AC%E6%95%B0%E6%8D%AE%E5%8F%98%E5%8C%96%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E4%B8%8D%E5%90%8C"><span class="nav-number">4.0.1.</span> <span class="nav-text">1.监听数据变化的实现原理不同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%8D%E5%90%8C"><span class="nav-number">4.0.2.</span> <span class="nav-text">2.数据流不同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Vuex%E5%92%8CRedux%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.0.3.</span> <span class="nav-text">3.Vuex和Redux的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E6%A1%86%E6%9E%B6%E6%9C%AC%E8%B4%A8%E4%B8%8D%E5%90%8C"><span class="nav-number">4.0.4.</span> <span class="nav-text">5.框架本质不同</span></a></li></ol></li></ol></li></ol>
+        
     </div>
 </div>
         </aside>
