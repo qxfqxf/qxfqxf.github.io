@@ -9,7 +9,7 @@
     
     <title>
         
-            搭建博客流程/问题 |
+            调用setState之后发生了什么 |
         
         Continue Study
     </title>
@@ -139,7 +139,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">搭建博客流程/问题</span>
+            <span class="title-hover-animation">调用setState之后发生了什么</span>
         </div>
 
         
@@ -158,16 +158,27 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2017-05-17 15:10:22</span>
-        <span class="mobile">2017-05-17 15:10</span>
+        <span class="pc">2021-02-03 09:10:50</span>
+        <span class="mobile">2021-02-03 09:10</span>
     </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/React/">React</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
     
     
 
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>291 Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>181 Words</span>
         </span>
     
     
@@ -188,26 +199,10 @@
         
 
         <div class="article-content markdown-body">
-            <h2 id="Welcome-to-第一篇文章，我在这里记录我创建博客时的问题"><a href="#Welcome-to-第一篇文章，我在这里记录我创建博客时的问题" class="headerlink" title="Welcome to 第一篇文章，我在这里记录我创建博客时的问题"></a>Welcome to 第一篇文章，我在这里记录我创建博客时的问题</h2><h1 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h1><p>dir	查询文件目录<br>hexo serve 启动<br>hexo n “我的第一篇文章”<br><code>hexo clean</code>清除了你之前生成的东西，也可以不加。<br><code>hexo generate</code> 顾名思义，生成静态文章，可以用 <code>hexo g</code>缩写<br><code>hexo deploy</code> 部署文章，可以用<code>hexo d</code>缩写</p>
-<p>添加标签： 在需要添加标签的文章里在data后加</p>
-<p>categories：  </p>
-<p>​	- Python</p>
-<p>部署到github  需要下载hexo-deployer-git<br>需要到_config.yml下的Deployment去配置type&#x3D;”git”和git地址<br>然后就可以进行部署  hexo d </p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>–都为两个—-</p>
-<p>1， 配置你的<a class="link"   target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=github&spm=1001.2101.3001.7020" >github<i class="fas fa-external-link-alt"></i></a>用户名和和邮箱，</p>
-<p>​		git config –global user.email “<a class="link"   href="mailto:&#x64;&#97;&#109;&#x69;&#110;&#x67;&#x31;&#55;&#64;&#x31;&#54;&#51;&#x2e;&#99;&#x6f;&#109;" >&#x64;&#97;&#109;&#x69;&#110;&#x67;&#x31;&#55;&#64;&#x31;&#54;&#51;&#x2e;&#99;&#x6f;&#109;<i class="fas fa-external-link-alt"></i></a>“ </p>
-<p>​		git config –global user.name “daming-Z”</p>
-<p>2，取消git本身的https代理，使用自己本机的代理，</p>
-<p>​		取消http代理* 	  git config –global –unset http.proxy </p>
-<p>​		取消https代理*  	git config –global –unset https.proxy</p>
-<p>3，生成github令牌流程</p>
-<p>​		<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/yjw123456/article/details/119696726" >https://blog.csdn.net/yjw123456/article/details/119696726<i class="fas fa-external-link-alt"></i></a></p>
-<p>4，keep主题的配置</p>
-<p>​		<a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/368244108" >https://zhuanlan.zhihu.com/p/368244108<i class="fas fa-external-link-alt"></i></a></p>
-<p>参考 bilibiliup </p>
-<p><a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty?spm_id_from=333.337.search-card.all.click" >https://www.bilibili.com/video/BV1Yb411a7ty?spm_id_from=333.337.search-card.all.click<i class="fas fa-external-link-alt"></i></a></p>
-<p>设置主题</p>
-<p><a class="link"   target="_blank" rel="noopener" href="https://hexo.io/themes/" >https://hexo.io/themes/<i class="fas fa-external-link-alt"></i></a></p>
+            <p>在代码中调用setState函数之后，React 会将传入的参数对象与组件当前的状态合并，然后触发所谓的调和过程（Reconciliation）。</p>
+<p>经过调和过程，React 会以相对高效的方式根据新的状态构建 React 元素树并且着手重新渲染整个UI界面。</p>
+<p>在 React 得到元素树之后，React 会自动计算出新的树与老树的节点差异，然后根据差异对界面进行最小化重渲染。</p>
+<p>在差异计算算法中，React 能够相对精确地知道哪些位置发生了改变以及应该如何改变，这就保证了按需更新，而不是全部重新渲染</p>
 
         </div>
 
@@ -221,13 +216,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2018/04/12/Vue%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/"
+                           href="/2021/03/16/webpack/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Vue面试题总结</span>
+                                <span class="post-nav-title-item">webpack</span>
                                 <span class="post-nav-item">Prev posts</span>
                             </span>
                         </a>
@@ -237,10 +232,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2017/05/17/hello-world/"
+                           href="/2021/01/29/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%99%9A%E6%8B%9F%20dom%20%E4%BC%9A%E6%8F%90%E9%AB%98%E6%80%A7%E8%83%BD/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Hello World</span>
+                                <span class="post-nav-title-item">为什么虚拟 dom 会提高性能</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -360,7 +355,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Welcome-to-%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%EF%BC%8C%E6%88%91%E5%9C%A8%E8%BF%99%E9%87%8C%E8%AE%B0%E5%BD%95%E6%88%91%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%97%B6%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">Welcome to 第一篇文章，我在这里记录我创建博客时的问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B"><span class="nav-number"></span> <span class="nav-text">流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number"></span> <span class="nav-text">问题</span></a>
+        
     </div>
 </div>
         </aside>
